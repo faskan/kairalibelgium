@@ -66,3 +66,13 @@
     background-color: #a50da2;
     border-color: #fed136;
 }
+
+#mainNav {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background-color: transparent;
+}
+
+#mainNav .navbar-toggler {
+    background-color: #127b36;
+}
