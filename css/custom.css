@@ -82,6 +82,11 @@
     font-size: 1.125rem;
     font-weight: 700;
 }
+.current-event {
+    font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-weight: 700;
+}
+
 .book-tickets a {
     color: #e22cb1;
 }
@@ -103,4 +108,15 @@
 
 a {
     color: #e22cb1;
+}
+
+.blink_me {
+    animation: blinker 1.5s linear infinite;
+    color: #e22cb1;
+}
+
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
 }
