@@ -90,3 +90,8 @@
     max-width: 100%;
     height: auto;
 }
+
+.btn-outline-light {
+    color: #e22cb1;
+    border-color:#e22cb1;
+}
