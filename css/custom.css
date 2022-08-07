@@ -22,7 +22,7 @@
     #mainNav.navbar-shrink {
         padding-top: 1rem;
         padding-bottom: 1rem;
-        background-color: transparent;
+        background-color: white;
     }
 }
 
@@ -94,4 +94,13 @@
 .btn-outline-light {
     color: #e22cb1;
     border-color:#e22cb1;
+}
+
+.timeline .timeline-body > ul, .timeline .timeline-body > p {
+    margin-bottom: 0;
+    text-align: center;
+}
+
+a {
+    color: #e22cb1;
 }
