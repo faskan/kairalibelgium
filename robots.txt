@@ -1,0 +1,1 @@
+User-agent: *Allow: /Sitemap: https://kairalibelgium.com/sitemap.xml
