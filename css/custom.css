@@ -110,6 +110,10 @@ a {
     color: #e22cb1;
 }
 
+a:hover {
+    color: #e22cb1;
+}
+
 .blink_me {
     animation: blinker 1.5s linear infinite;
     color: #e22cb1;
