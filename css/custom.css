@@ -70,7 +70,13 @@
 #mainNav {
     padding-top: 1rem;
     padding-bottom: 1rem;
-    background-color: transparent;
+    background-color: white;
+}
+
+@media (min-width: 992px) {
+    #mainNav {
+        background-color: transparent;
+    }
 }
 
 #mainNav .navbar-toggler {
@@ -103,9 +109,15 @@
 
 .timeline .timeline-body > ul, .timeline .timeline-body > p {
     margin-bottom: 0;
-    text-align: center;
 }
-
+@media (min-width: 992px) {
+    .timeline .regular .timeline-body > p {
+        text-align: right;
+    }
+    .timeline .timeline-inverted .timeline-body > p {
+        text-align: left;
+    }
+}
 a {
     color: #e22cb1;
 }
