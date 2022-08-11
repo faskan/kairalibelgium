@@ -64,7 +64,7 @@
 .btn-primary.disabled, .btn-primary:disabled {
     color: #fff;
     background-color: #970870;
-    border-color: #fed136;
+    border-color: #e22cb1;
 }
 
 #mainNav {
@@ -140,3 +140,5 @@ a:hover {
 #c-bns button:first-child, #s-bns button:first-child {
     --cc-btn-primary-bg: #e22cb1;
 }
+
+
