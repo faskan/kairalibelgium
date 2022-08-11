@@ -136,3 +136,7 @@ a:hover {
         opacity: 0;
     }
 }
+
+#c-bns button:first-child, #s-bns button:first-child {
+    --cc-btn-primary-bg: #e22cb1;
+}
