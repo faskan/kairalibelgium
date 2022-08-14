@@ -3,14 +3,14 @@
     * Copyright 2013-2020 Start Bootstrap
     * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-agency/blob/master/LICENSE)
     */
-    (function ($) {
+(function ($) {
     "use strict"; // Start of use strict
 
     // Smooth scrolling using jQuery easing
     $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function () {
         if (
             location.pathname.replace(/^\//, "") ==
-                this.pathname.replace(/^\//, "") &&
+            this.pathname.replace(/^\//, "") &&
             location.hostname == this.hostname
         ) {
             var target = $(this.hash);
@@ -55,24 +55,24 @@
     $(window).scroll(navbarCollapse);
 })(jQuery); // End of use strict
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     var lazyloadImages = document.querySelectorAll("img.lazy");
     var lazyloadThrottleTimeout;
 
-    function lazyload () {
-        if(lazyloadThrottleTimeout) {
+    function lazyload() {
+        if (lazyloadThrottleTimeout) {
             clearTimeout(lazyloadThrottleTimeout);
         }
 
-        lazyloadThrottleTimeout = setTimeout(function() {
+        lazyloadThrottleTimeout = setTimeout(function () {
             var scrollTop = window.pageYOffset;
-            lazyloadImages.forEach(function(img) {
-                if(img.offsetTop < (window.innerHeight + scrollTop)) {
+            lazyloadImages.forEach(function (img) {
+                if (img.offsetTop < (window.innerHeight + scrollTop)) {
                     img.src = img.dataset.src;
                     img.classList.remove('lazy');
                 }
             });
-            if(lazyloadImages.length == 0) {
+            if (lazyloadImages.length == 0) {
                 document.removeEventListener("scroll", lazyload);
                 window.removeEventListener("resize", lazyload);
                 window.removeEventListener("orientationChange", lazyload);
@@ -87,8 +87,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function onClick(e) {
     e.preventDefault();
-    grecaptcha.ready(function() {
-        grecaptcha.execute('6LfxWXUhAAAAAAY7Cqqj7OJ_gL7EtxZxoF9DnMKy', {action: 'submit'}).then(function(token) {
+    grecaptcha.ready(function () {
+        grecaptcha.execute('6LfxWXUhAAAAAAY7Cqqj7OJ_gL7EtxZxoF9DnMKy', {action: 'submit'}).then(function (token) {
             console.log('Token: ' + token);
         });
     });
@@ -97,15 +97,19 @@ function onClick(e) {
 function onSubmit(token) {
     var http = new XMLHttpRequest();
     var url = 'https://hmdowpcunl.execute-api.us-east-1.amazonaws.com/Prod/mail';
-    var params = 'orem=ipsum&name=test&token=' + token;
+    var params = 'name=' + document.getElementById('name')
+        + '&email=' + document.getElementById('email')
+        + '&phone=' + document.getElementById('phone')
+        + '&message=' + document.getElementById('message')
+        + '&token=' + token;
     http.open('POST', url, true);
 
 //Send the proper header information along with the request
     http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
-    http.onreadystatechange = function() {//Call a function when the state changes.
-        if(http.readyState == 4 && http.status == 200) {
-            alert(http.responseText);
+    http.onreadystatechange = function () {//Call a function when the state changes.
+        if (http.readyState == 4 && http.status == 200) {
+            alert('Thank you for contacting us!');
         }
     }
     http.send(params);
