@@ -108,9 +108,9 @@ function onSubmit(token) {
             alert('Thank you for contacting us!');
         }
     }
-    http.send(JSON.stringify({ "name": document.getElementById('name'),
-        "email": document.getElementById('email'),
-        "phone": document.getElementById('phone'),
-        "message": document.getElementById('message'),
+    http.send(JSON.stringify({ "name": document.getElementById('name').value,
+        "email": document.getElementById('email').value,
+        "phone": document.getElementById('phone').value,
+        "message": document.getElementById('message').value,
         "token": token }));
 }
