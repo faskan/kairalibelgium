@@ -97,20 +97,19 @@ function onClick(e) {
 function onSubmit(token) {
     var http = new XMLHttpRequest();
     var url = 'https://hmdowpcunl.execute-api.us-east-1.amazonaws.com/Prod/mail';
-    var params = 'name=' + document.getElementById('name')
-        + '&email=' + document.getElementById('email')
-        + '&phone=' + document.getElementById('phone')
-        + '&message=' + document.getElementById('message')
-        + '&token=' + token;
     http.open('POST', url, true);
 
 //Send the proper header information along with the request
-    http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    http.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 
     http.onreadystatechange = function () {//Call a function when the state changes.
         if (http.readyState == 4 && http.status == 200) {
             alert('Thank you for contacting us!');
         }
     }
-    http.send(params);
+    http.send(JSON.stringify({ "name": document.getElementById('name'),
+        "email": document.getElementById('email'),
+        "phone": document.getElementById('phone'),
+        "message": document.getElementById('message'),
+        "token": token }));
 }
