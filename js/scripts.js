@@ -55,10 +55,6 @@
     $(window).scroll(navbarCollapse);
 })(jQuery); // End of use strict
 
-function enableBtn(){
-    document.getElementById("sendMessageButton").disabled = false;
-}
-
 document.addEventListener("DOMContentLoaded", function() {
     var lazyloadImages = document.querySelectorAll("img.lazy");
     var lazyloadThrottleTimeout;
@@ -88,3 +84,12 @@ document.addEventListener("DOMContentLoaded", function() {
     window.addEventListener("resize", lazyload);
     window.addEventListener("orientationChange", lazyload);
 });
+
+function onClick(e) {
+    e.preventDefault();
+    grecaptcha.ready(function() {
+        grecaptcha.execute('6LfxWXUhAAAAAAY7Cqqj7OJ_gL7EtxZxoF9DnMKy', {action: 'submit'}).then(function(token) {
+            console.log('Token: ' + token);
+        });
+    });
+}

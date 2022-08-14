@@ -362,21 +362,11 @@
                     </div>
                 </div>
             </div>
-            <div class="form-group">
-                <!--<div
-                  class="g-recaptcha"
-                  data-sitekey="<site_key>"
-                  data-callback="enableBtn"
-                ></div>-->
-            </div>
             <div class="text-center">
                 <div id="success"></div>
                 <button
-                        class="btn btn-primary btn-xl text-uppercase"
-                        id="sendMessageButton"
-                        type="submit"
-                        disabled="disabled"
-                >
+                        class="btn btn-primary btn-xl text-uppercase g-recaptcha"
+                        onclick="onClick()">
                     Send Message
                 </button>
             </div>
@@ -457,5 +447,6 @@
 <script src="js/scripts.js"></script>
 <script defer src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v2.8.5/dist/cookieconsent.js"></script>
 <script defer src="js/cookieconsent-init.js"></script>
+<script src="https://www.google.com/recaptcha/api.js?render=6LfxWXUhAAAAAAY7Cqqj7OJ_gL7EtxZxoF9DnMKy"></script>
 </body>
 </html>
