@@ -77,6 +77,7 @@
             mobileFirst: true,
             slidesToShow: 1,
             slidesToScroll: 1,
+            pauseOnHover:false,
             responsive: [
                 {
                     breakpoint: breakpoint.sm,
