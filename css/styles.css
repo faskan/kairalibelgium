@@ -10546,3 +10546,22 @@ section#contact form#contactForm :-ms-input-placeholder {
 #slick .slick-slide:focus {
   outline: none;
 }
+
+.slide {
+  height: 100%;
+  /*background-color: #ccc;*/
+  padding: 10px;
+}
+.slick-track
+{
+  display: flex !important;
+}
+
+.slick-slide
+{
+  height: inherit !important;
+}
+
+.card {
+  height: 100%;
+}
