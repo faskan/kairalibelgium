@@ -10494,3 +10494,55 @@ section#contact form#contactForm :-ms-input-placeholder {
   font-size: 0.9rem;
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
+
+
+#slick .slick-list {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+#slick .slick-slide {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+#slick .slick-slide:focus {
+  outline: none;
+}
+#breakpoint-helper:after {
+  color: #fff;
+  text-transform: uppercase;
+  content: 'XS';
+}
+@media (min-width: 576px) {
+  #breakpoint-helper:after {
+    content: 'sm';
+  }
+}
+@media (min-width: 768px) {
+  #breakpoint-helper:after {
+    content: 'md';
+  }
+}
+@media (min-width: 992px) {
+  #breakpoint-helper:after {
+    content: 'lg';
+  }
+}
+@media (min-width: 1200px) {
+  #breakpoint-helper:after {
+    content: 'xl';
+  }
+}
+
+#slick .slick-list {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+#slick .slick-slide {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+#slick .slick-slide:focus {
+  outline: none;
+}
