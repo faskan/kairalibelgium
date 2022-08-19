@@ -10134,15 +10134,14 @@ img::-moz-selection {
   }
 }
 header.masthead {
-  padding-top: 20.5rem;
-  padding-bottom: 6rem;
+  padding-top: 40.5rem;
+  padding-bottom: 2rem;
   text-align: center;
   color: #fff;
-  background-image: url("../assets/img/kairali.gif");
+  background-image: url("../assets/img/kairali-bg-portrait.jpg");
   background-repeat: no-repeat;
-  background-attachment: scroll;
   background-position: center center;
-  background-size: cover;
+  background-size:100% 100%;
 }
 header.masthead .masthead-subheading {
   font-size: 1.5rem;
@@ -10161,8 +10160,10 @@ header.masthead .masthead-heading {
 
 @media (min-width: 768px) {
   header.masthead {
+    background-image: url("../assets/img/kairali-bg-no-logo.jpg");
     padding-top: 30rem;
     padding-bottom: 12.5rem;
+    background-size:100%;
   }
   header.masthead .masthead-subheading {
     font-size: 2.25rem;

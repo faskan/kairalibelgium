@@ -70,11 +70,18 @@
 #mainNav {
     padding-top: 1rem;
     padding-bottom: 1rem;
-    background-color: white;
+    background-color: transparent;
 }
 
+#mainNav ul{
+    background-color: rgba(255,255,255,0.8);
+    text-align: right;
+}
 @media (min-width: 992px) {
     #mainNav {
+        background-color: transparent;
+    }
+    #mainNav ul{
         background-color: transparent;
     }
 }
@@ -272,5 +279,10 @@ hr {
 
 .curved-border {
     border-radius: 10% !important;
+}
+
+.btn-xl {
+    padding: 1.25rem 1.6rem;
+    font-size: 1rem;
 }
 
