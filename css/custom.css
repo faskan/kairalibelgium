@@ -199,8 +199,7 @@ hr {
 }
 
 .card:hover {
-    color: white;
-    background: #f158a8;
+    background: #eec26a;
 }
 
 .card .card-title {
@@ -226,9 +225,11 @@ hr {
     transition: background 0.2s;
 }
 
+/*
 .card:hover .card-link {
     background: var(--darkred);
 }
+*/
 
 .cards::-webkit-scrollbar {
     height: 12px;
