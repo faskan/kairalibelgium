@@ -10138,7 +10138,7 @@ header.masthead {
   padding-bottom: 2rem;
   text-align: center;
   color: #fff;
-  background-image: url("../assets/img/kairali-bg-portrait.jpg");
+  background-image: url("../assets/img/header-bg-mobile.jpg");
   background-repeat: no-repeat;
   background-position: center center;
   background-size:100% 100%;
@@ -10160,7 +10160,7 @@ header.masthead .masthead-heading {
 
 @media (min-width: 768px) {
   header.masthead {
-    background-image: url("../assets/img/kairali-bg-no-logo.jpg");
+    background-image: url("../assets/img/header-bg.jpg");
     padding-top: 30rem;
     padding-bottom: 12.5rem;
     background-size:100%;
