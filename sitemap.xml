@@ -1,1 +1,18 @@
-<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">   <url>      <loc>https://kairalibelgium.com/</loc>      <priority>1.0</priority>      <lastmod>2022-08-19</lastmod>   </url>   <url>      <loc>https://kairalibelgium.com/home.html#events</loc>      <priority>1.0</priority>      <lastmod>2022-08-19</lastmod>   </url>   <url>      <loc>https://kairalibelgium.com/home.html#gallery</loc>      <priority>1.0</priority>      <lastmod>2022-08-19</lastmod>   </url>   <url>      <loc>https://kairalibelgium.com/home.html#aboutus</loc>      <priority>1.0</priority>      <lastmod>2022-08-19</lastmod>   </url>   <url>      <loc>https://kairalibelgium.com/faq.html</loc>      <priority>1.0</priority>      <lastmod>2022-08-19</lastmod>   </url></urlset>
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+   <url>
+      <loc>https://kairalibelgium.com/</loc>
+      <priority>1.0</priority>
+      <lastmod>2022-10-03</lastmod>
+   </url>
+   <url>
+      <loc>https://kairalibelgium.com/home.html</loc>
+      <priority>1.0</priority>
+      <lastmod>2022-10-03</lastmod>
+   </url>
+   <url>
+      <loc>https://kairalibelgium.com/videos.html</loc>
+      <priority>1.0</priority>
+      <lastmod>2022-10-03</lastmod>
+   </url>
+</urlset>
