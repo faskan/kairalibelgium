@@ -67,7 +67,7 @@
 
     $(document).ready(function(){
         $('#slick').slick({
-            autoplay: true,
+            autoplay: false,
             autoplaySpeed: 2000,
             draggable: true,
             infinite: true,
