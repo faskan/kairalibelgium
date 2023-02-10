@@ -287,3 +287,7 @@ hr {
     font-size: 1rem;
 }
 
+#myVideo {
+    min-width: 80%;
+    min-height: 80%;
+}
