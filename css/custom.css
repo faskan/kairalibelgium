@@ -73,15 +73,17 @@
     background-color: transparent;
 }
 
-#mainNav ul{
-    background-color: rgba(255,255,255,0.8);
+#mainNav ul {
+    background-color: rgba(255, 255, 255, 0.8);
     text-align: right;
 }
+
 @media (min-width: 992px) {
     #mainNav {
         background-color: transparent;
     }
-    #mainNav ul{
+
+    #mainNav ul {
         background-color: transparent;
     }
 }
@@ -95,6 +97,7 @@
     font-size: 1.125rem;
     font-weight: 700;
 }
+
 .current-event {
     font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     font-weight: 700;
@@ -111,20 +114,23 @@
 
 .btn-outline-light {
     color: #e22cb1;
-    border-color:#e22cb1;
+    border-color: #e22cb1;
 }
 
 .timeline .timeline-body > ul, .timeline .timeline-body > p {
     margin-bottom: 0;
 }
+
 @media (min-width: 992px) {
     .timeline .regular .timeline-body > p {
         text-align: right;
     }
+
     .timeline .timeline-inverted .timeline-body > p {
         text-align: left;
     }
 }
+
 a {
     color: #e22cb1;
 }
@@ -287,7 +293,31 @@ hr {
     font-size: 1rem;
 }
 
-#myVideo {
-    min-width: 80%;
-    min-height: 80%;
+.wings-video {
+    width: 80%;
+    height:auto;
+    margin-top: -400px;
+}
+.wings-text {
+    position: absolute;
+    left: 131px;
+    bottom: 75px;
+    width: 77%;
+    margin: auto;
+}
+
+@media only screen and (max-width: 576px) {
+    .wings-text {
+        position: relative;
+        left: 0;
+        bottom: 0;
+        width: 340px;
+        margin: auto;
+        color: black !important;
+    }
+    .wings-video {
+        width: 100%;
+        height:auto;
+        margin-top: 0px;
+    }
 }
