@@ -4,7 +4,7 @@ import { RegisterWingsComponent } from './wings/register-wings/register-wings.co
 
 const routes: Routes = [
   {
-    path: 'wings/register',
+    path: '**',
     component: RegisterWingsComponent
   }];
 
