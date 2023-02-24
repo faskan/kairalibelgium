@@ -13,37 +13,55 @@
                         <form class="user">
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <input type="text" class="form-control form-control-user" id="exampleFirstName"
+                                    <input type="text" class="form-control form-control-user" id="firstName"
+                                           name="firstName"
+                                           [(ngModel)]="reservation.firstName"
                                            placeholder="First Name">
                                 </div>
                                 <div class="col-sm-6">
-                                    <input type="text" class="form-control form-control-user" id="exampleLastName"
+                                    <input type="text" class="form-control form-control-user" id="lastName"
+                                           name="lastName"
+                                           [(ngModel)]="reservation.lastName"
                                            placeholder="Last Name">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <input type="email" class="form-control form-control-user" id="exampleInputEmail"
+                                <input type="email" class="form-control form-control-user" id="emailAddress"
+                                       name="emailAddress"
+                                       [(ngModel)]="reservation.emailAddress"
                                        placeholder="Email Address">
                             </div>
                             <div class="form-group">
                                 <input type="phone" class="form-control form-control-user" id="phoneNumber"
+                                       name="phoneNumber"
+                                       [(ngModel)]="reservation.phoneNumber"
                                        placeholder="Phone Number">
+                            </div>
+                            <div class="form-group">
+                                <input type="phone" class="form-control form-control-user" id="residenceLocation"
+                                       name="residenceLocation"
+                                       [(ngModel)]="reservation.residenceLocation"
+                                       placeholder="Residence Location">
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
                                     <input type="text" class="form-control form-control-user" id="institution"
-                                           placeholder="School/College">
+                                           name="institution"
+                                           [(ngModel)]="reservation.college"
+                                           placeholder="University/College">
                                 </div>
                                 <div class="col-sm-6">
-                                    <input type="text" class="form-control form-control-user" id="studentID"
-                                           placeholder="Student Id">
+                                    <input type="text" class="form-control form-control-user" id="campusLocation"
+                                           name="campusLocation"
+                                           [(ngModel)]="reservation.campusLocation"
+                                           placeholder="Campus Location">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <input id="checkbox" type="checkbox" />
                                 <label for="checkbox">&nbsp;I agree to these <a href="#">Terms and Conditions</a>.</label>
                             </div>
-                            <a href="#" class="btn btn-primary btn-user btn-block">
+                            <a class="btn btn-primary btn-user btn-block" (click)="register()">
                                 Register
                             </a>
                         </form>
