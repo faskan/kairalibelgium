@@ -5,7 +5,7 @@ import { RegistrationDetailsComponent } from './wings/registration-details/regis
 
 const routes: Routes = [
   {
-    path: 'admin/registration-details',
+    path: 'admin',
     component: RegistrationDetailsComponent
   },
   {
