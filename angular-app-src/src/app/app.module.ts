@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { WingsModule } from './wings/wings.module';
+import { RECAPTCHA_V3_SITE_KEY, RecaptchaV3Module } from 'ng-recaptcha';
+import { environment } from '../environments/environment';
 
 @NgModule({
     declarations: [
@@ -14,11 +16,16 @@ import { WingsModule } from './wings/wings.module';
     imports: [
         BrowserModule,
         AppRoutingModule,
-        FormsModule, ReactiveFormsModule,
+        FormsModule,
+        ReactiveFormsModule,
         HttpClientModule,
-        WingsModule
+        WingsModule,
+        RecaptchaV3Module
     ],
-    providers: [],
+    providers: [{
+        provide: RECAPTCHA_V3_SITE_KEY,
+        useValue: environment.recaptcha.siteKey,
+    }],
     bootstrap: [AppComponent]
 })
 export class AppModule {
