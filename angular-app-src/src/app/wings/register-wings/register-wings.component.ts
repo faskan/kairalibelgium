@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { Component} from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { ReCaptchaV3Service } from 'ng-recaptcha';
 
@@ -14,13 +14,25 @@ export class RegisterWingsComponent {
     registrationSuccessful: boolean = false;
     consentOk: boolean = false;
     inProgress: boolean = false;
+    reservationForm: FormGroup;
+
 
     constructor(private httpClient: HttpClient,
                 private recaptchaV3Service: ReCaptchaV3Service) {
+        this.reservationForm = new FormGroup({
+            firstName: new FormControl(this.reservation.firstName, [Validators.required]),
+            lastName: new FormControl(this.reservation.lastName),
+            emailAddress: new FormControl(this.reservation.emailAddress, [Validators.required]),
+            phoneNumber: new FormControl(this.reservation.phoneNumber, [Validators.required]),
+            residenceLocation: new FormControl(this.reservation.residenceLocation),
+            college: new FormControl(this.reservation.college),
+            campusLocation: new FormControl(this.reservation.campusLocation)
+        });
     }
 
     register(): void {
         this.inProgress = true;
+        this.reservation = this.reservationForm.value;
         this.recaptchaV3Service.execute('registerWings')
             .subscribe((token: string) => {
                 this.httpClient.post('https://ezytix-xiosrv3ggq-ue.a.run.app/ezytix/apis/63f8e553e28e57207cbeb508/reservations',
@@ -41,16 +53,16 @@ export class RegisterWingsComponent {
                             'Campus Location': this.reservation.campusLocation
                         }
                     }, {headers: {'x-recaptcha-token': token}}).subscribe(response => {
-                        this.inProgress = false;
-                        this.registrationSuccessful = true;
-                        this.consentOk = false;
-                        this.reservation = {} as Reservation;
+                    this.inProgress = false;
+                    this.registrationSuccessful = true;
+                    this.consentOk = false;
+                    this.reservation = {} as Reservation;
                 });
             });
     }
 
     consent() {
-        this.consentOk = true;
+        this.consentOk = !this.consentOk;
     }
 }
 

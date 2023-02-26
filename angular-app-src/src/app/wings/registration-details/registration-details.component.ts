@@ -20,12 +20,12 @@ export class RegistrationDetailsComponent {
 
 export interface Reservation {
   reservedBy: Person,
-  additionalInfo: Map<string, string>
+  additionalInfo?: Map<string, string>
 }
 
 export interface Person {
   firstName: string,
-  lastName: string,
-  emailAddresses: string[],
-  phoneNumbers: string[]
+  lastName?: string,
+  emailAddresses?: string[],
+  phoneNumbers?: string[]
 }

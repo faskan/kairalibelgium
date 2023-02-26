@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RegisterWingsComponent } from './register-wings/register-wings.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegistrationDetailsComponent } from './registration-details/registration-details.component';
 
 
@@ -13,7 +13,8 @@ import { RegistrationDetailsComponent } from './registration-details/registratio
   ],
     imports: [
         CommonModule,
-        FormsModule
+        FormsModule,
+        ReactiveFormsModule
     ]
 })
 export class WingsModule { }
