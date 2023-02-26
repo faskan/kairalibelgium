@@ -26,8 +26,11 @@ export class RegisterWingsComponent {
             phoneNumber: new FormControl(this.reservation.phoneNumber, [Validators.required]),
             residenceLocation: new FormControl(this.reservation.residenceLocation),
             college: new FormControl(this.reservation.college),
-            campusLocation: new FormControl(this.reservation.campusLocation)
+            campusLocation: new FormControl(this.reservation.campusLocation),
+            willJoinInauguration: new FormControl(this.reservation.willJoinInauguration),
+            studentOrAlumni: new FormControl(this.reservation.studentOrAlumni)
         });
+        this.reservationForm.patchValue({willJoinInauguration: true, studentOrAlumni: 'Student'});
     }
 
     register(): void {
@@ -48,9 +51,11 @@ export class RegisterWingsComponent {
                             ]
                         },
                         "additionalInfo": {
-                            'Residence Location': this.reservation.residenceLocation,
+                            'Residence': this.reservation.residenceLocation,
                             'College': this.reservation.college,
-                            'Campus Location': this.reservation.campusLocation
+                            'Campus': this.reservation.campusLocation,
+                            'Category' : this.reservation.studentOrAlumni,
+                            'WillJoinInauguration' : this.reservation.willJoinInauguration
                         }
                     }, {headers: {'x-recaptcha-token': token}}).subscribe(response => {
                     this.inProgress = false;
@@ -74,4 +79,6 @@ export interface Reservation {
     residenceLocation: string,
     college: string,
     campusLocation: string
+    willJoinInauguration: boolean;
+    studentOrAlumni: string;
 }
