@@ -294,9 +294,12 @@ hr {
 }
 
 .wings-video {
-    width: 80%;
-    height:auto;
-    margin-top: -400px;
+    width: 110%;
+    height:80%;
+    margin-top: -150px;
+}
+.wings-video-container {
+    overflow: hidden;
 }
 .wings-text {
     position: absolute;
