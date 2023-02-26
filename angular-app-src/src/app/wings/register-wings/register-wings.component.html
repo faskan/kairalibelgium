@@ -1,5 +1,4 @@
 <div class="container">
-
     <div class="card o-hidden border-0 shadow-lg my-5">
         <div class="card-body p-0">
             <!-- Nested Row within Card Body -->
@@ -7,6 +6,9 @@
                 <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
                 <div class="col-lg-7">
                     <div class="p-5">
+                        <div class="alert alert-success" *ngIf="registrationSuccessful">
+                            <strong>Success!</strong> Registration was successful.
+                        </div>
                         <div class="text-center">
                             <h1 class="h4 text-gray-900 mb-4">Join Wings!</h1>
                         </div>
@@ -58,12 +60,16 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <input id="checkbox" type="checkbox" />
-                                <label for="checkbox">&nbsp;I agree to these <a href="#">Terms and Conditions</a>.</label>
+                                <input id="checkbox" type="checkbox" [checked]="consentOk" (click)="consent()"/>
+                                <label for="checkbox">&nbsp;<small>I provide my consent to Kairali Belgium Malayali Association vzw to save and process my data</small></label>
                             </div>
-                            <a class="btn btn-primary btn-user btn-block" (click)="register()">
-                                Register
-                            </a>
+                            <button type="button" class="btn btn-primary btn-user btn-block" [disabled]="!consentOk || inProgress" (click)="register()">
+                                <span *ngIf="!inProgress">Register</span>
+                                <span *ngIf="inProgress">Registering&nbsp;
+                                    <span class="spinner-border spinner-border-sm"></span>
+                                </span>
+
+                            </button>
                         </form>
                     </div>
                 </div>
