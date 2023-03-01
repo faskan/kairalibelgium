@@ -28,7 +28,8 @@ export class RegisterWingsComponent {
             college: new FormControl(this.reservation.college),
             campusLocation: new FormControl(this.reservation.campusLocation),
             willJoinInauguration: new FormControl(this.reservation.willJoinInauguration),
-            studentOrAlumni: new FormControl(this.reservation.studentOrAlumni)
+            studentOrAlumni: new FormControl(this.reservation.studentOrAlumni),
+            areaOfStudies: new FormControl(this.reservation.areaOfStudies)
         });
         this.reservationForm.patchValue({willJoinInauguration: true, studentOrAlumni: 'Student'});
     }
@@ -55,6 +56,7 @@ export class RegisterWingsComponent {
                             'College': this.reservation.college,
                             'Campus': this.reservation.campusLocation,
                             'Category' : this.reservation.studentOrAlumni,
+                            'AreaOfStudies' : this.reservation.areaOfStudies,
                             'WillJoinInauguration' : this.reservation.willJoinInauguration
                         }
                     }, {headers: {'x-recaptcha-token': token}}).subscribe(response => {
@@ -81,4 +83,5 @@ export interface Reservation {
     campusLocation: string
     willJoinInauguration: boolean;
     studentOrAlumni: string;
+    areaOfStudies: string;
 }
