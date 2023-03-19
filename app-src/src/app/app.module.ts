@@ -15,6 +15,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatCardModule } from '@angular/material/card';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FaqComponent } from './content/faq/faq.component';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     EventsComponent,
     GalleryComponent,
     AboutUsComponent,
-    ContactUsComponent
+    ContactUsComponent,
+    FaqComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BrowserAnimationsModule,
     MatDividerModule,
     MatCardModule,
-    NgbModule
+    NgbModule,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent]

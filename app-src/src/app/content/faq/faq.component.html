@@ -1,0 +1,42 @@
+<section class="page-section" id="faq">
+  <div class="container">
+
+    <div class="page-header">
+      <h1>Frequently Asked Questions <small>by Newcomers in Belgium</small></h1>
+    </div>
+
+    <!-- Bootstrap FAQ - START -->
+    <div class="container">
+
+      <div class="alert alert-warning alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span
+          class="sr-only">Close</span></button>
+        THIS DOCUMENT IS NOT INTENDED TO PROMOTE OR FAVOUR ANY PARTICULAR COMMERCIAL OR BUSINESS ACTIVITIES.
+      </div>
+
+      <div>
+            <span>
+                This page is put together purely based on the experiences shared by our Malayali Community who have been
+                living in Belgium over the past few years. This is to make sure that every malayali planning to settle
+                in Belgium for education/work/ family/ or any other reasons get to familiarise and adapt to life in
+                Belgium.
+            </span>
+      </div>
+      <br/>
+
+      <div class="pt-1" *ngFor="let faq of faqs">
+        <mat-expansion-panel class="mat-elevation-z0">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{faq.title}}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="panel-body" [innerHTML]="faq.description">
+          </div>
+        </mat-expansion-panel>
+        <mat-divider></mat-divider>
+      </div>
+
+    </div>
+  </div>
+</section>
