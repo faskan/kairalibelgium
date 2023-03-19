@@ -1,5 +1,11 @@
 [
   {
+    "image" : "assets/img/events/wings-poster.png",
+    "title" : "Wings Inauguration & Info Session",
+    "description" : "Aula Jozef Heuts, Kasteepark Arenberg 20, 3001 Heverlee",
+    "fbLink" : "https://kairalibelgium.com/wings.html"
+  },
+  {
     "image" : "assets/img/events/kids_event_nov_2022.png",
     "title" : "Kids Workshop 2022",
     "description" : "Koning Albertstraat 156, \n 2800 Walem",
