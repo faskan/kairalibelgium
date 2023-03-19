@@ -6,5 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
+  isCollapsed: boolean = true;
 
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+  setCollapsed() {
+    this.isCollapsed = !this.isCollapsed;
+  }
 }
