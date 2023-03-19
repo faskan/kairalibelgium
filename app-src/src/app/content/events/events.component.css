@@ -1,0 +1,9 @@
+.mat-card-xl-image {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .mat-mdc-card {
+    height: 580px;
+  }
+}

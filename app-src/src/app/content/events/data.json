@@ -1,0 +1,68 @@
+[
+  {
+    "image" : "assets/img/events/kids_event_nov_2022.png",
+    "title" : "Kids Workshop 2022",
+    "description" : "Koning Albertstraat 156, \n 2800 Walem",
+    "fbLink" : "https://www.facebook.com/events/2273470366149861"
+  },
+  {
+    "image" : "assets/img/onam.jpg",
+    "title" : "Onam Celebration 2022",
+    "description" : "Heilig Hartinstituut Heverlee Naamsesteenweg 355,\n              3001 Leuven",
+    "fbLink" : "https://www.facebook.com/events/3354975631448982/?acontext=%7B%22event_action_history%22%3A[%7B%22surface%22%3A%22page%22%7D]%7D"
+  },
+  {
+    "image": "assets/img/events/naadan-ruchi_2022.png",
+    "title": "നാടൻ രുചിയും നമ്മുടെ പാട്ടും",
+    "description" : "Heilig Hartinstituut Heverlee Naamsesteenweg 355,\n              3001 Leuven",
+    "fbLink" : "https://www.facebook.com/events/563900841744183/?acontext=%7B%22event_action_history%22%3A[%7B%22surface%22%3A%22page%22%7D]%7D"
+  },
+  {
+    "image" : "assets/img/events/spring_events_2022.jpg",
+    "title" : "Kairali Belgium Spring Events 2022",
+    "description" : "Kairali Belgium Malayali Association - Nekkerspoel-Borcht",
+    "fbLink" : "https://www.facebook.com/events/353908030121988/?acontext=%7B%22event_action_history%22%3A[%7B%22surface%22%3A%22page%22%7D]%7D"
+  },
+  {
+    "image" : "assets/img/events/online_cultural.jpg",
+    "title" : "Kairali Onam 2021 online cultural event",
+    "description" : "Online Event",
+    "fbLink" : "https://www.facebook.com/events/4481841038504167/?acontext=%7B%22event_action_history%22%3A[%7B%22surface%22%3A%22page%22%7D]%7D"
+  },
+  {
+    "image" : "assets/img/events/football_2021.jpg",
+    "title" : "Kairali Football League 2021",
+    "description" : "Kairali Belgium - Malayali Association - Nekkerspoel-borcht 19 2800 Mechelen",
+    "fbLink" : "https://www.facebook.com/events/226191049451936/?acontext=%7B%22event_action_history%22%3A[%7B%22surface%22%3A%22page%22%7D]%7D"
+  },
+  {
+    "image" : "assets/img/events/fun-games-2021.jpeg",
+    "title" : "Kairali Onam Fun Games 2021",
+    "description" : "Kairali Belgium - Malayali Association - Ridder Dessainlaan 65, 2800 Mechelen, België",
+    "fbLink" : "https://www.facebook.com/events/3198202620401311/?acontext=%7B%22event_action_history%22%3A[%7B%22surface%22%3A%22page%22%7D]%7D"
+  },
+  {
+    "image" : "assets/img/events/badminton-league-2021.jpeg",
+    "title" : "Badminton League Kairali Onam 2021",
+    "description" : "Kairali Belgium - Malayali Association - Nekkerspoel-Borcht, 2800 Mechelen, België",
+    "fbLink" : "https://www.facebook.com/events/383997236491267/?acontext=%7B%22event_action_history%22%3A[%7B%22surface%22%3A%22page%22%7D]%7D"
+  },
+  {
+    "image" : "assets/img/events/online-onam-2020.jpeg",
+    "title" : "Kairali Belgium - Online Onam Celebration 2020",
+    "description" : "Kairali Belgium - Malayali Association - Online event",
+    "fbLink" : "https://www.facebook.com/events/336620274243106/?acontext=%7B%22event_action_history%22%3A[%7B%22surface%22%3A%22page%22%7D]%7D"
+  },
+  {
+    "image" : "assets/img/events/onam-2019.jpeg",
+    "title" : "Kairali-Belgium Onam2019 & Inauguration of Malayali Association",
+    "description" : "Kairali Belgium - Malayali Association - VUB - Vrije Universiteit Brussel",
+    "fbLink" : "https://www.facebook.com/events/2301555950106242/?acontext=%7B%22event_action_history%22%3A[%7B%22surface%22%3A%22page%22%7D]%7D"
+  },
+  {
+    "image" : "assets/img/events/pre-event-2019.jpeg",
+    "title" : "Pre-Event Meetup: Onam 2019",
+    "description" : "Kairali Belgium - Malayali Association - Parc Georges Henri",
+    "fbLink" : "https://www.facebook.com/events/501415390633565/?acontext=%7B%22event_action_history%22%3A[%7B%22surface%22%3A%22page%22%7D]%7D"
+  }
+]
