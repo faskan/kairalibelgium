@@ -4,12 +4,13 @@
     <div class="text-center">
       <h2 class="section-heading text-uppercase">Contact Us</h2>
     </div>
-    <form id="contactForm" name="sentMessage" novalidate="novalidate">
+    <form id="contactForm" name="sentMessage" novalidate="novalidate" [formGroup]="contactRequestForm">
       <div class="row align-items-stretch mb-5">
         <div class="col-md-6">
           <div class="form-group">
             <input
               class="form-control"
+              formControlName="name"
               id="name"
               type="text"
               placeholder="Your Name *"
@@ -22,6 +23,7 @@
             <input
               class="form-control"
               id="email"
+              formControlName="email"
               type="email"
               placeholder="Your Email *"
               required="required"
@@ -33,6 +35,7 @@
             <input
               class="form-control"
               id="phone"
+              formControlName="phone"
               type="tel"
               placeholder="Your Phone *"
               required="required"
@@ -45,6 +48,7 @@
           <div class="form-group form-group-textarea mb-md-0">
                 <textarea
                   class="form-control"
+                  formControlName="message"
                   id="message"
                   placeholder="Your Enquiry *"
                   required="required"
@@ -56,10 +60,8 @@
       </div>
       <div class="text-center">
         <div id="success"></div>
-        <button class="btn btn-primary btn-xl text-uppercase g-recaptcha"
-                data-sitekey="6LfxWXUhAAAAAAY7Cqqj7OJ_gL7EtxZxoF9DnMKy"
-                data-callback="onSubmit"
-                data-action="submit">Submit</button>
+        <button class="btn btn-primary btn-xl text-uppercase"
+                (click)="sendEmail()">Submit</button>
       </div>
     </form>
   </div>

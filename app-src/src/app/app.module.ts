@@ -18,6 +18,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FaqComponent } from './content/faq/faq.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { HomeComponent } from './content/home/home.component';
+import { HttpClientModule } from '@angular/common/http';
+import { RECAPTCHA_V3_SITE_KEY, RecaptchaV3Module } from 'ng-recaptcha';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -40,9 +43,14 @@ import { HomeComponent } from './content/home/home.component';
     MatDividerModule,
     MatCardModule,
     NgbModule,
-    MatExpansionModule
+    MatExpansionModule,
+    HttpClientModule,
+    RecaptchaV3Module,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    { provide: RECAPTCHA_V3_SITE_KEY, useValue: '6LfxWXUhAAAAAAY7Cqqj7OJ_gL7EtxZxoF9DnMKy' },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
