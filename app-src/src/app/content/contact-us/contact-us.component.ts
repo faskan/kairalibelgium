@@ -37,7 +37,7 @@ export class ContactUsComponent {
             "phone" : this.contactRequest.phone,
             "message" : this.contactRequest.message,
             "token" : token
-          }).subscribe(response => {
+          }, { responseType: 'text'}).subscribe(response => {
           this.inProgress = false;
           this.requestSent = true;
           this.contactRequestForm.reset();
