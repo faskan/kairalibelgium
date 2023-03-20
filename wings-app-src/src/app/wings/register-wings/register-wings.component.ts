@@ -31,7 +31,7 @@ export class RegisterWingsComponent {
             studentOrAlumni: new FormControl(this.reservation.studentOrAlumni),
             areaOfStudies: new FormControl(this.reservation.areaOfStudies)
         });
-        this.reservationForm.patchValue({willJoinInauguration: true, studentOrAlumni: 'Student'});
+        this.reservationForm.patchValue({studentOrAlumni: 'Student'});
     }
 
     register(): void {
@@ -64,6 +64,13 @@ export class RegisterWingsComponent {
                     this.registrationSuccessful = true;
                     this.consentOk = false;
                     this.reservation = {} as Reservation;
+                    this.reservationForm.reset();
+                    this.reservationForm.patchValue({studentOrAlumni: 'Student'});
+                    window.scroll({
+                        top: 0,
+                        left: 0,
+                        behavior: 'smooth'
+                    });
                 });
             });
     }

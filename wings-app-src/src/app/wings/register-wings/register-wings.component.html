@@ -47,7 +47,9 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <select class="form-control form-select form-control-select" aria-label="Default select example">
+                                    <select class="form-control form-select form-control-select"
+                                            formControlName="studentOrAlumni"
+                                            aria-label="Default select example">
                                         <option value="Student">Student</option>
                                         <option value="Alumni">Alumni</option>
                                     </select>
@@ -72,10 +74,6 @@
                                            formControlName="campusLocation"
                                            placeholder="Campus Location">
                                 </div>
-                            </div>
-                            <div class="form-group row col-sm-12">
-                                <input class="col-sm-1" id="participation" type="checkbox" formControlName="willJoinInauguration"/>
-                                <label for="participation" class="col-sm-11">I will join the Inauguration event on 18th of March 2023</label>
                             </div>
                             <div class="form-group row col-sm-12">
                                 <input class="col-sm-1" id="checkbox" type="checkbox" [checked]="consentOk" (click)="consent()"/>
