@@ -11,7 +11,8 @@ export class EventsComponent {
 
   slideConfig = {
     infinite: true,
-    dots: true,
+    dots: false,
+    arrows: true,
     autoplay: true,
     mobileFirst: true,
     autoplaySpeed: 5000,
