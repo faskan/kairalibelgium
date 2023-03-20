@@ -21,12 +21,12 @@
     <div class="collapse navbar-collapse" id="navbarResponsive" [ngbCollapse]="isCollapsed">
       <ul class="navbar-nav text-uppercase ml-auto">
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#page-top"
+          <a class="nav-link js-scroll-trigger" [ngClass]="isActive('/home')" (click)="routeTo('/home')"
           ><b>Home</b></a
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#events"
+          <a class="nav-link js-scroll-trigger" [ngClass]="isActive('/events')" (click)="routeTo('/events')"
           ><b>Events</b></a
           >
         </li>
@@ -36,22 +36,22 @@
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#gallery"
+          <a class="nav-link js-scroll-trigger" [ngClass]="isActive('/gallery')" (click)="routeTo('/gallery')"
           ><b>Gallery</b></a
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#about"
+          <a class="nav-link js-scroll-trigger" [ngClass]="isActive('/about-us')" (click)="routeTo('/about-us')"
           ><b>About Us</b></a
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#contact"
+          <a class="nav-link js-scroll-trigger" [ngClass]="isActive('/contact-us')" (click)="routeTo('/contact-us')"
           ><b>Contact</b></a
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#faq"
+          <a class="nav-link js-scroll-trigger" [ngClass]="isActive('/faq')" (click)="routeTo('/faq')"
           ><b>FAQ</b></a
           >
         </li>

@@ -17,6 +17,7 @@ import { MatCardModule } from '@angular/material/card';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FaqComponent } from './content/faq/faq.component';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { HomeComponent } from './content/home/home.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
     GalleryComponent,
     AboutUsComponent,
     ContactUsComponent,
-    FaqComponent
+    FaqComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
