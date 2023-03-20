@@ -6,6 +6,9 @@
     </div>
     <form id="contactForm" name="sentMessage" novalidate="novalidate" [formGroup]="contactRequestForm">
       <div class="row align-items-stretch mb-5">
+        <div class="alert alert-success" *ngIf="requestSent">
+          <strong>Success!</strong> Your message was sent..
+        </div>
         <div class="col-md-6">
           <div class="form-group">
             <input
@@ -61,6 +64,7 @@
       <div class="text-center">
         <div id="success"></div>
         <button class="btn btn-primary btn-xl text-uppercase"
+                [disabled]="inProgress || !contactRequestForm.valid"
                 (click)="sendEmail()">Submit</button>
       </div>
     </form>
