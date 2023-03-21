@@ -1,16 +1,26 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MainComponent } from './main/main.component';
+import { WingsComponent } from './wings/wings.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'wings',
+    component: WingsComponent
+  },
+  {
+    path: 'wings.html',
+    pathMatch: 'full',
+    redirectTo: 'wings'
+  },
+  {
+    path: 'main',
     component: MainComponent
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {useHash: true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule {

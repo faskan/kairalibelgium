@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -9,14 +9,13 @@ import { Router } from '@angular/router';
 export class NavbarComponent {
   isCollapsed: boolean = true;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.router.navigateByUrl('home', { skipLocationChange: true });
   }
 
   routeTo(route: string) {
-    this.router.navigateByUrl(route, { skipLocationChange: true });
+    this.router.navigate([route]);
     this.isCollapsed = true;
   }
   setCollapsed() {
@@ -25,5 +24,10 @@ export class NavbarComponent {
 
   isActive(route: string) {
     return this.router.isActive(route, true) ? 'active' : '';
+  }
+
+  routeToWings() {
+    //this.router.navigate(["/wings"], {relativeTo: this.route});
+    this.router.navigate(['/wings'], { relativeTo: this.route.parent });
   }
 }

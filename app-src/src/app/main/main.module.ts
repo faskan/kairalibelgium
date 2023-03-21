@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './navbar/navbar.component';
-import { ContentComponent } from './content/content.component';
 import { FooterComponent } from './footer/footer.component';
 import { EventsComponent } from './content/events/events.component';
 import { AboutUsComponent } from './content/about-us/about-us.component';
@@ -18,7 +17,6 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { HttpClientModule } from '@angular/common/http';
 import { RecaptchaV3Module } from 'ng-recaptcha';
 import { ReactiveFormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
 import { MainRoutingModule } from './main-routing.module';
 
 
@@ -27,7 +25,6 @@ import { MainRoutingModule } from './main-routing.module';
   declarations: [
     MainComponent,
     NavbarComponent,
-    ContentComponent,
     FooterComponent,
     EventsComponent,
     GalleryComponent,
