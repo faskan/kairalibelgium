@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RECAPTCHA_V3_SITE_KEY, RecaptchaV3Module } from 'ng-recaptcha';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MainModule } from './main/main.module';
+import { WingsModule } from './wings/wings.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { MainModule } from './main/main.module';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MainModule
+    MainModule,
+    WingsModule
   ],
   providers: [
     { provide: RECAPTCHA_V3_SITE_KEY, useValue: '6LfxWXUhAAAAAAY7Cqqj7OJ_gL7EtxZxoF9DnMKy' },

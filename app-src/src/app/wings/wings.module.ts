@@ -1,16 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { WingsComponent } from './wings.component';
-import { RouterModule } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import { WingsRoutingModule } from './wings-routing.module';
 
 
 @NgModule({
   declarations: [
-    WingsComponent
+    WingsComponent,
+    HomeComponent
   ],
   imports: [
     CommonModule,
-    RouterModule
+    WingsRoutingModule
   ]
 })
 export class WingsModule {
