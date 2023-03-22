@@ -21,37 +21,37 @@
     <div class="collapse navbar-collapse" id="navbarResponsive" [ngbCollapse]="isCollapsed">
       <ul class="navbar-nav text-uppercase ml-auto">
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" [ngClass]="isActive('/home')" (click)="routeTo('/home')"
+          <a class="nav-link js-scroll-trigger" [routerLink]="['/home']"
           ><b>Home</b></a
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" [ngClass]="isActive('/events')" (click)="routeTo('/events')"
+          <a class="nav-link js-scroll-trigger" [routerLink]="['/events']"
           ><b>Events</b></a
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" [routerLink]="['/wings']"
+          <a class="nav-link js-scroll-trigger" [routerLink]="['/wings/home']"
           ><b>Wings</b></a
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" [ngClass]="isActive('/gallery')" (click)="routeTo('/gallery')"
+          <a class="nav-link js-scroll-trigger" [routerLink]="['/gallery']"
           ><b>Gallery</b></a
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" [ngClass]="isActive('/about-us')" (click)="routeTo('/about-us')"
+          <a class="nav-link js-scroll-trigger" [routerLink]="['/about-us']"
           ><b>About Us</b></a
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" [ngClass]="isActive('/contact-us')" (click)="routeTo('/contact-us')"
+          <a class="nav-link js-scroll-trigger" [routerLink]="['/contact-us']"
           ><b>Contact</b></a
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" [ngClass]="isActive('/faq')" (click)="routeTo('/faq')"
+          <a class="nav-link js-scroll-trigger" [routerLink]="['/faq']"
           ><b>FAQ</b></a
           >
         </li>

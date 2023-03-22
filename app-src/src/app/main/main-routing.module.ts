@@ -36,7 +36,12 @@ const routes: Routes = [
       {
         path: 'faq',
         component: FaqComponent
-      }
+      },
+      {
+        path: '',
+        redirectTo: 'home',
+        pathMatch: 'full'
+      },
     ]
   }
 ];
