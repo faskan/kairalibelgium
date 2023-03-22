@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -9,7 +9,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class NavbarComponent {
   isCollapsed: boolean = true;
 
-  constructor() { }
+  constructor(private router: Router) {
+    router.events.subscribe((val) => {
+      if (val instanceof NavigationEnd) {
+        this.isCollapsed = true;
+      }
+    });
+  }
 
   ngOnInit(): void {
   }
