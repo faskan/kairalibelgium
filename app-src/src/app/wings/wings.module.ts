@@ -3,16 +3,20 @@ import { CommonModule } from '@angular/common';
 import { WingsComponent } from './wings.component';
 import { HomeComponent } from './home/home.component';
 import { WingsRoutingModule } from './wings-routing.module';
+import { RegisterWingsComponent } from './register-wings/register-wings.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
     WingsComponent,
-    HomeComponent
+    HomeComponent,
+    RegisterWingsComponent
   ],
   imports: [
     CommonModule,
-    WingsRoutingModule
+    WingsRoutingModule,
+    ReactiveFormsModule
   ]
 })
 export class WingsModule {

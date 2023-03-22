@@ -29,6 +29,7 @@
               "@angular/material/prebuilt-themes/indigo-pink.css",
               "node_modules/slick-carousel/slick/slick.scss",
               "node_modules/slick-carousel/slick/slick-theme.scss",
+              "src/assets/sb-admin/sb-admin-2.min.css",
               "src/styles.css",
               "src/custom.css"
             ],
