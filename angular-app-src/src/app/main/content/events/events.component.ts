@@ -15,7 +15,7 @@ export class EventsComponent {
     arrows: true,
     autoplay: true,
     mobileFirst: true,
-    autoplaySpeed: 5000,
+    autoplaySpeed: 3000,
     responsive: [
       {
         breakpoint: 1024,
