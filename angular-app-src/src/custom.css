@@ -334,3 +334,7 @@ hr {
         right: 180px;
     }
 }
+
+.grecaptcha-badge {
+  visibility: hidden;
+}
