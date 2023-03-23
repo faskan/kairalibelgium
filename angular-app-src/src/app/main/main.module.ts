@@ -33,9 +33,10 @@ import { MainRoutingModule } from './main-routing.module';
     FaqComponent,
     HomeComponent
   ],
-  exports: [
-    MainComponent
-  ],
+    exports: [
+        MainComponent,
+        NavbarComponent
+    ],
   imports: [
     CommonModule,
     SlickCarouselModule,
