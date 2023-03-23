@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { WingsComponent } from './wings.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterWingsComponent } from './register-wings/register-wings.component';
+import { RegistrationDetailsComponent } from './admin/registration-details/registration-details.component';
 
 const routes: Routes = [
   {
@@ -10,12 +11,16 @@ const routes: Routes = [
     component: WingsComponent,
     children: [
       {
+        path: 'register',
+        component: RegisterWingsComponent
+      },
+      {
         path: 'home',
         component: HomeComponent
       },
       {
-        path: 'register',
-        component: RegisterWingsComponent
+        path: 'admin',
+        component: RegistrationDetailsComponent
       }
     ]
   }

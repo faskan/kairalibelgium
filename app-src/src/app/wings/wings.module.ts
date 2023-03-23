@@ -5,6 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { WingsRoutingModule } from './wings-routing.module';
 import { RegisterWingsComponent } from './register-wings/register-wings.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AdminModule } from './admin/admin.module';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     WingsRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AdminModule
   ]
 })
 export class WingsModule {

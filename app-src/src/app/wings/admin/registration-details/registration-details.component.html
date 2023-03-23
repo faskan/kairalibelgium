@@ -1,0 +1,27 @@
+<div class="container">
+    <h2 class="pt-5">Registered Candidates</h2>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Area Of Studies | Campus | Student/Alumni | College | Residence | Joining Inauguration |</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let reservation of reservations">
+            <td>{{reservation.reservedBy.firstName}}</td>
+            <td>{{reservation.reservedBy.lastName}}</td>
+            <td>{{reservation.reservedBy.emailAddresses?.[0]}}</td>
+            <td>{{reservation.reservedBy.phoneNumbers?.[0]}}</td>
+            <td>
+                <span *ngFor="let mapEntry of reservation.additionalInfo | keyvalue">
+                    {{mapEntry.value}} &nbsp;|
+                </span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

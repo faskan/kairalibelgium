@@ -9,12 +9,7 @@ const routes: Routes = [
     component: WingsComponent
   },
   {
-    path: 'wings.html',
-    pathMatch: 'full',
-    redirectTo: 'wings'
-  },
-  {
-    path: 'main',
+    path: '#',
     component: MainComponent
   }
 ];
