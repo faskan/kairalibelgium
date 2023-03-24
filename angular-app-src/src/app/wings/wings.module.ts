@@ -9,7 +9,7 @@ import { AdminModule } from './admin/admin.module';
 import { NavbarComponent } from './navbar/navbar.component';
 import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './login/login.component';
-import { GoogleSigninButtonModule } from '@abacritt/angularx-social-login';
+import { GoogleSigninButtonModule, SocialLoginModule } from '@abacritt/angularx-social-login';
 
 
 @NgModule({
@@ -20,14 +20,15 @@ import { GoogleSigninButtonModule } from '@abacritt/angularx-social-login';
     NavbarComponent,
     LoginComponent
   ],
-  imports: [
-    CommonModule,
-    WingsRoutingModule,
-    ReactiveFormsModule,
-    AdminModule,
-    NgbCollapseModule,
-    GoogleSigninButtonModule
-  ]
+    imports: [
+        CommonModule,
+        WingsRoutingModule,
+        ReactiveFormsModule,
+        AdminModule,
+        NgbCollapseModule,
+        GoogleSigninButtonModule,
+        SocialLoginModule
+    ]
 })
 export class WingsModule {
 }
