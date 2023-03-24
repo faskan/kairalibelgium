@@ -17,15 +17,15 @@ export class LoginComponent {
   }
 
   ngOnInit() {
-    window.googleLoginCallback = (response: any) => {
-      console.log('My new TEst Method');
-      console.log(this.user);
-      this.authService.getAccessToken(GoogleLoginProvider.PROVIDER_ID).then(response => console.log(response));
-    }
-    this.authService.authState.subscribe((user) => {
-      this.user = user;
-      this.loggedIn = (user != null);
-    });
+    // window.googleLoginCallback = (response: any) => {
+    //   console.log('My new TEst Method');
+    //   console.log(this.user);
+    //   this.authService.getAccessToken(GoogleLoginProvider.PROVIDER_ID).then(response => console.log(response));
+    // }
+    // this.authService.authState.subscribe((user) => {
+    //   this.user = user;
+    //   this.loggedIn = (user != null);
+    // });
   }
 }
 

@@ -22,8 +22,7 @@ const routes: Routes = [
       },
       {
         path: 'admin',
-        component: RegistrationDetailsComponent,
-        canActivate: [AuthGuardService]
+        component: RegistrationDetailsComponent
       },
       {
         path: 'login',
