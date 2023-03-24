@@ -28,3 +28,7 @@ export class LoginComponent {
     });
   }
 }
+
+declare global {
+  interface Window { googleLoginCallback: any; }
+}
