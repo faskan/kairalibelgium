@@ -8,6 +8,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AdminModule } from './admin/admin.module';
 import { NavbarComponent } from './navbar/navbar.component';
 import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
     WingsComponent,
     HomeComponent,
     RegisterWingsComponent,
-    NavbarComponent
+    NavbarComponent,
+    LoginComponent
   ],
     imports: [
         CommonModule,
