@@ -1,5 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { GoogleLoginProvider, SocialAuthService, SocialUser } from '@abacritt/angularx-social-login';
+import { WINDOW } from '../../common/window.service';
 
 @Component({
   selector: 'app-login',
