@@ -13,7 +13,6 @@ import {
   SocialAuthServiceConfig,
   SocialLoginModule
 } from '@abacritt/angularx-social-login';
-import { WINDOW_PROVIDERS } from './common/window.service';
 
 @NgModule({
   declarations: [
@@ -25,11 +24,9 @@ import { WINDOW_PROVIDERS } from './common/window.service';
     BrowserAnimationsModule,
     MainModule,
     WingsModule,
-    FacebookModule.forRoot(),
-    SocialLoginModule
+    FacebookModule.forRoot()
   ],
   providers: [
-    WINDOW_PROVIDERS,
     { provide: RECAPTCHA_V3_SITE_KEY, useValue: '6LfxWXUhAAAAAAY7Cqqj7OJ_gL7EtxZxoF9DnMKy' },
     {
       provide: 'SocialAuthServiceConfig',
