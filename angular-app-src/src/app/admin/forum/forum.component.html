@@ -1,0 +1,18 @@
+<div class="container pt-5">
+  <div class="mt-5 pt-5">
+    <div *ngFor="let thread of threads" class="col-lg-12 forum pt-3">
+      <h4 (click)="showThreadDetails(thread.id)" class="cursor">{{thread.title}}</h4>
+      <p>{{thread.description}}</p>
+      <div>
+        <a class="px-2" (click)="replyThread(thread.id)">Reply</a>
+        <a class="px-2" href="#">Share</a>
+        <sub class="float-right">{{thread.createdBy.name}} on {{thread.lastUpdatedAt}}</sub>
+      </div>
+      <hr/>
+    </div>
+  </div>
+  <div class="d-flex justify-content-center pt-5">
+    <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger"
+       (click)="openNewThreadDialog()">Ask Question</a></div>
+  <mat-progress-bar *ngIf="loading" color="accent" mode="indeterminate"></mat-progress-bar>
+</div>

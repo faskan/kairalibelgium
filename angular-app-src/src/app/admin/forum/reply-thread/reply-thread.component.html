@@ -1,0 +1,38 @@
+<div class="container pt-5">
+  <form id="newThreadForm" name="newThreadForm" [formGroup]="replyThreadForm" novalidate="novalidate">
+    <div class="row align-items-stretch mb-5">
+      <div class="col-md-12">
+        <div class="form-group">
+          <input
+            class="form-control"
+            id="name"
+            type="text"
+            placeholder="Your Name (Anonymous)"
+            required="required"
+            data-validation-required-message="Please enter your name."
+            formControlName="name"
+          />
+          <p class="help-block text-danger"></p>
+        </div>
+        <div class="form-group form-group-textarea mb-md-0">
+                <textarea
+                  class="form-control"
+                  rows="10"
+                  id="message"
+                  placeholder="Reply *"
+                  required="required"
+                  formControlName="content"
+                  data-validation-required-message="Please enter a detailed content."
+                ></textarea>
+          <p class="help-block text-danger"></p>
+        </div>
+      </div>
+    </div>
+    <div class="text-center">
+      <div id="success"></div>
+      <button
+        (click)="onSubmit()"
+        class="btn btn-primary btn-xl text-uppercase">Submit</button>
+    </div>
+  </form>
+</div>

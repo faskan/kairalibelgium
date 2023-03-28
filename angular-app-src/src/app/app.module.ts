@@ -14,6 +14,8 @@ import {
 } from '@abacritt/angularx-social-login';
 import { AdminModule } from './admin/admin.module';
 import { LoginModule } from './login/login.module';
+import { ForumModule } from './admin/forum/forum.module';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -23,11 +25,13 @@ import { LoginModule } from './login/login.module';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    MatDialogModule,
+    FacebookModule.forRoot(),
     MainModule,
     WingsModule,
     AdminModule,
     LoginModule,
-    FacebookModule.forRoot()
+    ForumModule
   ],
   providers: [
     { provide: RECAPTCHA_V3_SITE_KEY, useValue: '6LfxWXUhAAAAAAY7Cqqj7OJ_gL7EtxZxoF9DnMKy' },

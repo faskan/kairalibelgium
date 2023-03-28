@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { WingsRegistrationComponent } from './wings-registration/wings-registration.component';
 import { AdminComponent } from './admin.component';
 import { AuthGuardService } from '../auth/auth-guard.service';
+import { ForumComponent } from './forum/forum.component';
 
 const routes: Routes = [
   {
@@ -11,8 +12,12 @@ const routes: Routes = [
     canActivate: [AuthGuardService],
     children: [
       {
-        path: 'wings-registration',
+        path: 'wings',
         component: WingsRegistrationComponent
+      },
+      {
+        path: 'forum',
+        component: ForumComponent
       },
       {
         path: 'home',

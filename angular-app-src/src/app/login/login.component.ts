@@ -23,7 +23,7 @@ export class LoginComponent {
       this.user = user;
       this.loggedIn = (user != null);
       if(this.loggedIn) {
-        this.router.navigate(['admin/home']);
+        this.router.navigate(['admin']);
       }
     });
   }
