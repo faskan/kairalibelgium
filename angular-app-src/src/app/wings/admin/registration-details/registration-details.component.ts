@@ -1,5 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { SocialAuthService } from '@abacritt/angularx-social-login';
 
 @Component({
   selector: 'app-registration-details',
@@ -9,10 +10,21 @@ import { Component } from '@angular/core';
 export class RegistrationDetailsComponent {
 
   reservations: Reservation[] = [];
+  readonly remoteHost = 'https://ezytix-xiosrv3ggq-uc.a.run.app';
+  readonly localHost = 'http://localhost:8080';
 
-  constructor(private httpClient: HttpClient){
-    this.httpClient.get<Reservation[]>('https://ezytix-xiosrv3ggq-ue.a.run.app/ezytix/apis/63f8e553e28e57207cbeb508/reservations')
+  constructor(private httpClient: HttpClient, private socialAuthService: SocialAuthService){
+    this.socialAuthService.authState.subscribe(socialUser => {
+      const httpOptions = {
+        headers: new HttpHeaders({
+          'Content-Type':  'application/json',
+          Authorization: 'Bearer ' + socialUser.idToken
+        })
+      };
+      this.httpClient.get<Reservation[]>(this.remoteHost + '/ezytix/apis/63f8e553e28e57207cbeb508/reservations', httpOptions)
         .subscribe(response => this.reservations = response);
+
+    });
   }
 
 }
