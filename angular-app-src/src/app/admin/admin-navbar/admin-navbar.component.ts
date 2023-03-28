@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
+import { SocialAuthService } from '@abacritt/angularx-social-login';
 
 @Component({
   selector: 'app-admin-navbar',
@@ -9,7 +10,8 @@ import { NavigationEnd, Router } from '@angular/router';
 export class AdminNavbarComponent {
   isCollapsed: boolean = true;
 
-  constructor(private router: Router) {
+  constructor(private router: Router,
+              private socialAuthService: SocialAuthService) {
     router.events.subscribe((val) => {
       if (val instanceof NavigationEnd) {
         this.isCollapsed = true;
@@ -22,5 +24,10 @@ export class AdminNavbarComponent {
 
   setCollapsed() {
     this.isCollapsed = !this.isCollapsed;
+  }
+
+  logout() {
+    this.socialAuthService.signOut(true);
+    this.router.navigate(['login']);
   }
 }

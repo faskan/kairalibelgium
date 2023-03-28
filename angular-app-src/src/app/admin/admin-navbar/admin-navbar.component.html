@@ -21,13 +21,13 @@
     <div class="collapse navbar-collapse" id="navbarResponsive" [ngbCollapse]="isCollapsed">
       <ul class="navbar-nav text-uppercase ml-auto">
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" [routerLink]="['/admin/home']" routerLinkActive="active" ariaCurrentWhenActive="page"
-          ><b>Home</b></a
+          <a class="nav-link js-scroll-trigger" [routerLink]="['/admin/wings-registration']" routerLinkActive="active" ariaCurrentWhenActive="page"
+          ><b>Wings Registration</b></a
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" [routerLink]="['/admin/wings-registration']" routerLinkActive="active" ariaCurrentWhenActive="page"
-          ><b>Wings Registration</b></a
+          <a class="nav-link js-scroll-trigger" (click)="logout()"
+          ><b>Log out</b></a
           >
         </li>
       </ul>

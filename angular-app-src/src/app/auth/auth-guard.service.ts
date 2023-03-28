@@ -16,11 +16,10 @@ export class AuthGuardService {
     return this.socialAuthService.authState.pipe(
       map((socialUser: SocialUser) => !!socialUser),
       tap((isLoggedIn: boolean) => {
-        if (!isLoggedIn) {
-          console.log('route to login');
-          this.router.navigate(['login']);
+          if (!isLoggedIn) {
+            this.router.navigate(['login']);
+          }
         }
-      })
-    );
+      ));
   }
 }
