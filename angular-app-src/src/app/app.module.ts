@@ -11,8 +11,9 @@ import { FacebookModule } from 'ngx-facebook';
 import {
   GoogleLoginProvider,
   SocialAuthServiceConfig,
-  SocialLoginModule
 } from '@abacritt/angularx-social-login';
+import { AdminModule } from './admin/admin.module';
+import { LoginModule } from './login/login.module';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,8 @@ import {
     BrowserAnimationsModule,
     MainModule,
     WingsModule,
+    AdminModule,
+    LoginModule,
     FacebookModule.forRoot()
   ],
   providers: [

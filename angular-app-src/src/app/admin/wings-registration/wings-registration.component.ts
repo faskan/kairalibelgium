@@ -3,11 +3,10 @@ import { Component } from '@angular/core';
 import { SocialAuthService } from '@abacritt/angularx-social-login';
 
 @Component({
-  selector: 'app-registration-details',
-  templateUrl: './registration-details.component.html',
-  styleUrls: ['./registration-details.component.css']
+  selector: 'app-wings-registration',
+  templateUrl: './wings-registration.component.html'
 })
-export class RegistrationDetailsComponent {
+export class WingsRegistrationComponent {
 
   reservations: Reservation[] = [];
   readonly remoteHost = 'https://ezytix-xiosrv3ggq-uc.a.run.app';

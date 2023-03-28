@@ -3,9 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { WingsComponent } from './wings.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterWingsComponent } from './register-wings/register-wings.component';
-import { RegistrationDetailsComponent } from './admin/registration-details/registration-details.component';
-import { LoginComponent } from './login/login.component';
-import { AuthGuardService } from '../auth/auth-guard.service';
 
 const routes: Routes = [
   {
@@ -19,15 +16,6 @@ const routes: Routes = [
       {
         path: 'home',
         component: HomeComponent
-      },
-      {
-        path: 'admin',
-        component: RegistrationDetailsComponent,
-        canActivate: [AuthGuardService]
-      },
-      {
-        path: 'login',
-        component: LoginComponent
       }
     ]
   }

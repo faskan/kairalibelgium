@@ -5,11 +5,8 @@ import { HomeComponent } from './home/home.component';
 import { WingsRoutingModule } from './wings-routing.module';
 import { RegisterWingsComponent } from './register-wings/register-wings.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { AdminModule } from './admin/admin.module';
 import { NavbarComponent } from './navbar/navbar.component';
 import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
-import { LoginComponent } from './login/login.component';
-import { GoogleSigninButtonModule, SocialLoginModule } from '@abacritt/angularx-social-login';
 
 
 @NgModule({
@@ -18,16 +15,12 @@ import { GoogleSigninButtonModule, SocialLoginModule } from '@abacritt/angularx-
     HomeComponent,
     RegisterWingsComponent,
     NavbarComponent,
-    LoginComponent
   ],
     imports: [
         CommonModule,
         WingsRoutingModule,
         ReactiveFormsModule,
-        AdminModule,
         NgbCollapseModule,
-        GoogleSigninButtonModule,
-        SocialLoginModule
     ]
 })
 export class WingsModule {

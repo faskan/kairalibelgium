@@ -17,6 +17,7 @@ export class AuthGuardService {
       map((socialUser: SocialUser) => !!socialUser),
       tap((isLoggedIn: boolean) => {
         if (!isLoggedIn) {
+          console.log('route to login');
           this.router.navigate(['login']);
         }
       })
