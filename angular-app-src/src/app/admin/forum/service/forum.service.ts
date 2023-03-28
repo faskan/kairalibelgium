@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable, of } from 'rxjs';
 import { Thread } from '../model/thread';
 import { Post } from '../model/post';
+import { SocialAuthService } from '@abacritt/angularx-social-login';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,8 @@ export class ForumService {
   readonly THREADS_URL = 'https://slforum-xiosrv3ggq-uc.a.run.app/forum/threads';
   readonly POSTS_URL = 'https://slforum-xiosrv3ggq-uc.a.run.app/forum/posts';
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient,
+              private socialAuthService: SocialAuthService) { }
 
   getAllThreads(): Observable<Thread[]>{
     return this.httpClient.get<Thread[]>(this.THREADS_URL);
@@ -27,10 +29,28 @@ export class ForumService {
   }
 
   saveNewThread(thread: Thread): Observable<any> {
-    return this.httpClient.post(this.THREADS_URL, thread);
+    this.socialAuthService.authState.subscribe(socialUser => {
+      const httpOptions = {
+        headers: new HttpHeaders({
+          'Content-Type':  'application/json',
+          Authorization: 'Bearer ' + socialUser.idToken
+        })
+      };
+      return this.httpClient.post(this.THREADS_URL, thread, httpOptions).subscribe(response => console.log(response));
+    });
+    return of(false);
   }
 
   saveReply(post: Post): Observable<any> {
-    return this.httpClient.post(this.POSTS_URL, post);
+    this.socialAuthService.authState.subscribe(socialUser => {
+      const httpOptions = {
+        headers: new HttpHeaders({
+          'Content-Type':  'application/json',
+          Authorization: 'Bearer ' + socialUser.idToken
+        })
+      };
+      return this.httpClient.post(this.POSTS_URL, post, httpOptions).subscribe(response => console.log(response));
+    });
+    return of(false);
   }
 }
