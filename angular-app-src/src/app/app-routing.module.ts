@@ -9,7 +9,7 @@ import { LoginComponent } from './login/login.component';
 const routes: Routes = [
   {
     path: 'wings',
-    component: WingsComponent
+    loadChildren: () => import('./wings/wings.module').then(m => m.WingsModule),
   },
   {
     path: 'login',
@@ -17,12 +17,12 @@ const routes: Routes = [
   },
   {
     path: 'admin',
-    component: AdminComponent,
+    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
     canActivate: [AuthGuardService]
   },
   {
     path: '#',
-    component: MainComponent
+    loadChildren: () => import('./main/main.module').then(m => m.MainModule),
   }
 ];
 

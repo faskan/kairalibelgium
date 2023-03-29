@@ -6,7 +6,7 @@ import { AuthGuardService } from '../auth/auth-guard.service';
 
 const routes: Routes = [
   {
-    path: 'admin',
+    path: '',
     component: AdminComponent,
     canActivate: [AuthGuardService],
     children: [
@@ -28,7 +28,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { useHash: true })],
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
 export class AdminRoutingModule {
