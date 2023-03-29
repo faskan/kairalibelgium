@@ -6,7 +6,7 @@ import { RegisterWingsComponent } from './register-wings/register-wings.componen
 
 const routes: Routes = [
   {
-    path: 'wings',
+    path: '',
     component: WingsComponent,
     children: [
       {
@@ -14,7 +14,7 @@ const routes: Routes = [
         component: RegisterWingsComponent
       },
       {
-        path: 'home',
+        path: '',
         component: HomeComponent
       }
     ]

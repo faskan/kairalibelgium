@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+// @ts-ignore
 import PastEvents from './data.json';
 
 @Component({

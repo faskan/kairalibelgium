@@ -19,8 +19,8 @@ const routes: Routes = [
         loadChildren: () => import('forum/Module').then((m) => m.RemoteEntryModule),
       },
       {
-        path: 'home',
-        redirectTo: 'wings-registration',
+        path: '',
+        redirectTo: 'wings',
         pathMatch: 'full'
       }
     ]
