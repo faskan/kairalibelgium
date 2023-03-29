@@ -7,6 +7,16 @@ import { Component } from '@angular/core';
 })
 export class GalleryComponent {
   slides = [
+    {'image': 'assets/img/photos/2023-wings/IMG001.JPG'},
+    {'image': 'assets/img/photos/2023-wings/IMG003.JPG'},
+    {'image': 'assets/img/photos/2023-wings/IMG005.JPG'},
+    {'image': 'assets/img/photos/2023-wings/IMG006.JPG'},
+    {'image': 'assets/img/photos/2023-wings/IMG007.JPG'},
+    {'image': 'assets/img/photos/2023-wings/IMG010.JPG'},
+    {'image': 'assets/img/photos/2023-wings/IMG011.JPG'},
+    {'image': 'assets/img/photos/2023-wings/IMG012.JPG'},
+    {'image': 'assets/img/photos/2023-wings/IMG013.JPG'},
+    {'image': 'assets/img/photos/2023-wings/IMG014.JPG'},
     {'image': 'assets/img/photos/2022-onam/1.jpg'},
     {'image': 'assets/img/photos/2022-onam/2.jpg'},
     {'image': 'assets/img/photos/2022-onam/3.jpg'},
