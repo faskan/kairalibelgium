@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-gallery',
   templateUrl: './gallery.component.html',
   styleUrls: ['./gallery.component.css']
 })
-export class GalleryComponent {
+export class GalleryComponent implements OnInit{
   slides = [
     {'image': 'assets/img/photos/2023-wings/IMG001.JPG'},
     {'image': 'assets/img/photos/2023-wings/IMG003.JPG'},
@@ -60,4 +61,24 @@ export class GalleryComponent {
     autoplaySpeed: 2000,
     arrows: true
   };
+
+  readonly remoteHost = 'https://photogallery-xiosrv3ggq-ew.a.run.app';
+  readonly localHost = 'http://localhost:8080';
+  photos: Photo[] = [];
+
+  constructor (private httpClient: HttpClient) {
+  }
+
+  ngOnInit(): void {
+    this.httpClient.get<Photo[]>(this.localHost + '/clients/64259add18c9f66c78ffe8e6/photos')
+    .subscribe(response => this.photos = response);
+
+  }
+
+
+}
+
+export interface Photo {
+  name?: string,
+  url: string
 }

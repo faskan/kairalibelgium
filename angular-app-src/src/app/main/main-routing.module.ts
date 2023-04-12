@@ -23,7 +23,7 @@ const routes: Routes = [
       },
       {
         path: 'gallery',
-        component: GalleryComponent
+        loadChildren: () => import('photogallery/Module').then((m) => m.RemoteEntryModule),
       },
       {
         path: 'about-us',

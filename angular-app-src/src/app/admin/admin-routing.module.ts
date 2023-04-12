@@ -19,6 +19,10 @@ const routes: Routes = [
         loadChildren: () => import('forum/Module').then((m) => m.RemoteEntryModule),
       },
       {
+        path: 'photogallery',
+        loadChildren: () => import('photogallery/Module').then((m) => m.RemoteEntryModule),
+      },
+      {
         path: '',
         redirectTo: 'wings',
         pathMatch: 'full'
