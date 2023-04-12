@@ -7,7 +7,6 @@ import { AboutUsComponent } from './content/about-us/about-us.component';
 import { HomeComponent } from './content/home/home.component';
 import { FaqComponent } from './content/faq/faq.component';
 import { ContactUsComponent } from './content/contact-us/contact-us.component';
-import { GalleryComponent } from './content/gallery/gallery.component';
 import { MainComponent } from './main.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -27,7 +26,6 @@ import { MainRoutingModule } from './main-routing.module';
     NavbarComponent,
     FooterComponent,
     EventsComponent,
-    GalleryComponent,
     AboutUsComponent,
     ContactUsComponent,
     FaqComponent,

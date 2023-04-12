@@ -4,6 +4,7 @@ module.exports = withModuleFederationPlugin({
 
   remotes: {
     "forum": "https://techroots-bv.github.io/public/ng-mfes/forum/remoteEntry.mjs",
+    "photogallery": "https://techroots-bv.github.io/public/ng-mfes/photogallery/remoteEntry.mjs",
   },
 
   shared: {
