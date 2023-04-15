@@ -9,7 +9,7 @@ import { SocialAuthService } from '@abacritt/angularx-social-login';
 export class WingsRegistrationComponent {
 
   reservations: Reservation[] = [];
-  readonly remoteHost = 'https://ezytix-xiosrv3ggq-uc.a.run.app';
+  readonly remoteHost = 'https://ezytix-xiosrv3ggq-ew.a.run.app';
   readonly localHost = 'http://localhost:8080';
 
   constructor(private httpClient: HttpClient, private socialAuthService: SocialAuthService){

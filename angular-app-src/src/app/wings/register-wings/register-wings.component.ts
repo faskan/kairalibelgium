@@ -39,7 +39,7 @@ export class RegisterWingsComponent {
         this.reservation = this.reservationForm.value;
         this.recaptchaV3Service.execute('registerWings')
             .subscribe((token: string) => {
-                this.httpClient.post('https://ezytix-xiosrv3ggq-ue.a.run.app/ezytix/apis/63f8e553e28e57207cbeb508/reservations',
+                this.httpClient.post('https://ezytix-xiosrv3ggq-ew.a.run.app/ezytix/apis/63f8e553e28e57207cbeb508/reservations',
                     {
                         "reservedBy": {
                             "firstName": this.reservation.firstName,
