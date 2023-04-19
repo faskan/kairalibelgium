@@ -9,7 +9,7 @@ import { SocialAuthService } from '@abacritt/angularx-social-login';
 export class WingsRegistrationComponent {
 
   reservations: Reservation[] = [];
-  readonly remoteHost = 'https://ezytix-xiosrv3ggq-ew.a.run.app';
+  readonly remoteHost = 'https://ezytix.techroots.be';
   readonly localHost = 'http://localhost:8080';
 
   constructor(private httpClient: HttpClient, private socialAuthService: SocialAuthService){
@@ -20,7 +20,7 @@ export class WingsRegistrationComponent {
           Authorization: 'Bearer ' + socialUser.idToken
         })
       };
-      this.httpClient.get<Reservation[]>(this.remoteHost + '/ezytix/apis/63f8e553e28e57207cbeb508/reservations', httpOptions)
+      this.httpClient.get<Reservation[]>(this.remoteHost + '/apis/63f8e553e28e57207cbeb508/reservations', httpOptions)
         .subscribe(response => this.reservations = response);
 
     });
