@@ -1,2 +1,2 @@
 declare module 'forum/Module';
-declare module 'photogallery/Module';
+declare module 'photogallery/*';
