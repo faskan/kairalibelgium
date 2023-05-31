@@ -21,10 +21,10 @@
     <div class="collapse navbar-collapse" id="navbarResponsive" [ngbCollapse]="isCollapsed">
       <ul class="navbar-nav text-uppercase ml-auto">
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#home"><b>Home</b></a>
+          <a class="nav-link js-scroll-trigger" routerLinkActive="active" [routerLinkActiveOptions]="linkActiveOptions" [routerLink]="['home']" fragment="home"><b>Home</b></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#events"><b>Events</b></a>
+          <a class="nav-link js-scroll-trigger" routerLinkActive="active" [routerLinkActiveOptions]="linkActiveOptions" [routerLink]="['home']" fragment="events"><b>Events</b></a>
         </li>
         <li class="nav-item">
           <a class="nav-link js-scroll-trigger" [routerLink]="['/wings']" routerLinkActive="active" ariaCurrentWhenActive="page"
@@ -32,16 +32,16 @@
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#gallery"><b>Gallery</b></a>
+          <a class="nav-link js-scroll-trigger" routerLinkActive="active" [routerLinkActiveOptions]="linkActiveOptions" [routerLink]="['home']" fragment="gallery"><b>Gallery</b></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#about-us"><b>About Us</b></a>
+          <a class="nav-link js-scroll-trigger" routerLinkActive="active" [routerLinkActiveOptions]="linkActiveOptions" [routerLink]="['home']" fragment="about-us"><b>About Us</b></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#contact-us"><b>Contact</b></a>
+          <a class="nav-link js-scroll-trigger" routerLinkActive="active" [routerLinkActiveOptions]="linkActiveOptions" [routerLink]="['home']" fragment="contact-us"><b>Contact</b></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#faq"><b>FAQ</b></a>
+          <a class="nav-link js-scroll-trigger" routerLinkActive="active" [routerLinkActiveOptions]="linkActiveOptions" [routerLink]="['home']" fragment="faq"><b>FAQ</b></a>
         </li>
       </ul>
     </div>

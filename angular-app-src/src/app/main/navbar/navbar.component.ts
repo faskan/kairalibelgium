@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
+import { IsActiveMatchOptions, NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -8,6 +8,13 @@ import { NavigationEnd, Router } from '@angular/router';
 })
 export class NavbarComponent {
   isCollapsed: boolean = true;
+
+  public linkActiveOptions: IsActiveMatchOptions = {
+    matrixParams: 'ignored',
+    queryParams: 'ignored',
+    paths: 'exact',
+    fragment: 'exact',
+  };
 
   constructor(private router: Router) {
     router.events.subscribe((val) => {
