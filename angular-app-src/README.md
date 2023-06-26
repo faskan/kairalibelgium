@@ -1,3 +1,10 @@
+# To deploy your changes
+1. ng build
+2. copy the contents of the dist/app-src folder to the root folder (kairalibelgium)
+3. commit and push the changes to gh-pages branch
+4. wait for few minutes and check the changes in the website
+
+[]: # Path: angular-app-src/src/app/README.md
 # AppSrc
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.4.
