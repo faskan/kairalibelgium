@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FacebookService, InitParams } from 'ngx-facebook';
+import { CanActivateFn } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -18,7 +19,9 @@ export class AppComponent {
   }
 }
 
-export const redirectGuard = () => {
-  window.location.href = 'https://pretix.eu/Kairali.Belgium/Onam2023/';
-  return true;
+export function redirectGuard(redirectUrl: string): CanActivateFn {
+  return () => {
+    window.location.href = redirectUrl;
+    return true;
+  }
 }

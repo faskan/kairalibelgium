@@ -20,7 +20,7 @@ const routes: Routes = [
   },
   {
     path: 'onam-2023',
-    canActivate: [redirectGuard]
+    canActivate: [redirectGuard('https://pretix.eu/Kairali.Belgium/Onam2023/')]
   },
   {
     path: '#',
