@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuardService } from './auth/auth-guard.service';
 import { LoginComponent } from './login/login.component';
+import { redirectGuard } from './app.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
     path: 'admin',
     loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
     canActivate: [AuthGuardService]
+  },
+  {
+    path: 'onam-2023',
+    canActivate: [redirectGuard]
   },
   {
     path: '#',

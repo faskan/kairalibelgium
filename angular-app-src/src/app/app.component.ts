@@ -17,3 +17,8 @@ export class AppComponent {
     this.facebookService.init(initParams);
   }
 }
+
+export const redirectGuard = () => {
+  window.location.href = 'https://pretix.eu/Kairali.Belgium/Onam2023/';
+  return true;
+}
