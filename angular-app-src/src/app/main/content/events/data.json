@@ -1,5 +1,11 @@
 [
   {
+    "image" : "assets/img/events/onamfungames2023.jpeg",
+    "title" : "Onam Fun Games 2023",
+    "description" : "De Nekker, Mechelen",
+    "fbLink" : "https://www.facebook.com/events/804537451463919/?acontext=%7B%22ref%22%3A%2252%22%2C%22action_history%22%3A%22[%7B%5C%22surface%5C%22%3A%5C%22share_link%5C%22%2C%5C%22mechanism%5C%22%3A%5C%22share_link%5C%22%2C%5C%22extra_data%5C%22%3A%7B%5C%22invite_link_id%5C%22%3A234981389109960%7D%7D]%22%7D"
+  },
+  {
     "image" : "assets/img/events/onam2023.png",
     "title" : "Onam 2023",
     "description" : "Heilig Hartinstituut Heverlee Naamsesteenweg 355,\n              3001 Leuven",

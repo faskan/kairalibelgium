@@ -1,4 +1,18 @@
-.tell-me-more .btn-primary {
-  background-color: #fa7204;
-  border-color: #fa7204;
+.btn-tell-me-more {
+  padding: 1rem 1rem;
+}
+
+@media (max-width: 767px) {
+  .tell-me-more {
+    padding-top: 50px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .tell-me-more {
+    position: absolute;
+    top: 68%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 }

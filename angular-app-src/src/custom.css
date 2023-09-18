@@ -288,11 +288,6 @@ hr {
     border-radius: 10% !important;
 }
 
-.btn-xl {
-    padding: 1.25rem 1.6rem;
-    font-size: 1rem;
-}
-
 .wings-video {
     width: 110%;
     height:80%;
@@ -363,16 +358,5 @@ hr {
     height: auto;
     object-fit: contain;
   }
-  .tell-me-more {
-    padding-top: 50px;
-  }
 }
 
-@media only screen and (min-width: 768px) {
-  .tell-me-more {
-    position: absolute;
-    top: 65%;
-    left: 70%;
-    transform: translate(-50%, -50%);
-  }
-}
