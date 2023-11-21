@@ -476,6 +476,17 @@ mark,
 .img-fluid {
   max-width: 100%;
   height: auto;
+  display: block; /* Ensures the image is treated as a block element */
+  margin-left: auto; /* Centers the image by pushing it from the left */
+  margin-right: auto; /* Centers the image by pushing it from the right */
+}
+
+/* Media query for larger screens */
+@media (min-width: 1200px) { /* Adjust 1200px to the width at which you want to change the styling */
+  .img-fluid {
+    max-height: 600px; /* Adjust the max-height as needed */
+    object-fit: cover; /* This will ensure the image covers the area without stretching. */
+  }
 }
 
 .img-thumbnail {
