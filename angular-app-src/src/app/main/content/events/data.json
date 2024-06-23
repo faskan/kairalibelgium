@@ -1,5 +1,11 @@
 [
   {
+    "image" : "assets/img/events/2024/sports-fest.jpeg",
+    "title" : "Sports Fest 2024",
+    "description" : "De Nekker, Nekerspoel-Borcht 19, Mechelen",
+    "fbLink" : "https://www.facebook.com/events/809807414538745"
+  },
+  {
     "image" : "assets/img/events/2024/tarang-2024.jpeg",
     "title" : "Tarang 2024 - New Year DJ Party",
     "description" : "GC De Bosstraat, Bosstraat 28, 3012 Leuven",
