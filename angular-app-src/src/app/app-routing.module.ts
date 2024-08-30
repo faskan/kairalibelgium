@@ -19,8 +19,8 @@ const routes: Routes = [
     canActivate: [AuthGuardService]
   },
   {
-    path: 'onam-2023',
-    canActivate: [redirectGuard('https://pretix.eu/Kairali.Belgium/Onam2023/')]
+    path: 'program-schedule',
+    loadChildren: () => import('./program-schedule/program-schedule.module').then(m => m.ProgramScheduleModule),
   },
   {
     path: '#',
