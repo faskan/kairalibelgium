@@ -61,21 +61,52 @@ export class ProgramScheduleComponent implements OnInit {
     }
   }
 
-  onDrop(event: CdkDragDrop<any[]>) {
-    moveItemInArray(this.schedules, event.previousIndex, event.currentIndex);
+  moveScheduleUp(index: number) {
+    if (index > 0) {
+      this.swapSchedules(index, index - 1);
+    }
+  }
+
+  moveScheduleDown(index: number) {
+    if (index < this.schedules.length - 1) {
+      this.swapSchedules(index, index + 1);
+    }
+  }
+
+  swapSchedules(index1: number, index2: number) {
+    const schedule1 = this.schedules[index1];
+    const schedule2 = this.schedules[index2];
+
+    const tempTime = schedule1.scheduledTime;
+    schedule1.scheduledTime = schedule2.scheduledTime;
+    schedule2.scheduledTime = tempTime;
+
+    this.schedules[index1] = schedule2;
+    this.schedules[index2] = schedule1;
+
     this.updateScheduleOrder();
   }
 
   updateScheduleOrder() {
-    const updatedSchedules = this.schedules.map((schedule, index) => {
-      const newScheduledTime = this.calculateNewTime(index);
-      return { ...schedule, scheduledTime: newScheduledTime };
-    });
-
-    this.http.post(`/apis/schedules/reschedule`, updatedSchedules).subscribe(() => {
+    this.http.post(`/api/schedules/reschedule`, this.schedules).subscribe(() => {
       this.loadSchedules();
       alert('Programs rescheduled successfully!');
     });
+  }
+
+  getStatusClass(status: string) {
+    switch (status.toLowerCase()) {
+      case 'scheduled':
+        return 'badge-primary';
+      case 'ongoing':
+        return 'badge-warning';
+      case 'completed':
+        return 'badge-success';
+      case 'cancelled':
+        return 'badge-danger';
+      default:
+        return 'badge-secondary';
+    }
   }
 
   calculateNewTime(index: number): string {
