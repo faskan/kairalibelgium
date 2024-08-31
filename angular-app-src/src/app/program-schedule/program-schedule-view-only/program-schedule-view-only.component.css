@@ -1,0 +1,137 @@
+.time-info {
+  width: 100px; /* Set a fixed width to align all rows consistently */
+  margin-right: 15px;
+}
+
+.time-index {
+  font-size: 2.5em;
+  font-weight: bold;
+  color: #343a40;
+}
+
+.duration {
+  font-size: 1.2em;
+  color: #6c757d;
+}
+
+.schedule-info h5 {
+  margin-bottom: 5px;
+}
+
+.list-group-item {
+  background-color: #f8f9fa;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.badge {
+  font-size: 1em;
+  padding: 0.5em 0.75em;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+.icon-btn {
+  padding: 0;
+  margin-right: 10px; /* Add spacing between icons */
+  font-size: 1.2em; /* Reduce icon size */
+  color: #007bff;
+  text-decoration: none;
+}
+
+.icon-btn.text-danger {
+  color: #dc3545;
+}
+
+.icon-btn:disabled {
+  color: #6c757d;
+}
+
+.icon-btn:last-child {
+  margin-right: 0; /* Remove right margin from the last icon */
+}
+
+/* Ensure icons are aligned horizontally on medium and larger screens */
+.align-self-center.d-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.align-self-center.d-flex.flex-column {
+  flex-direction: column;
+}
+
+.icon-btn {
+  padding: 0;
+  margin-right: 20px;
+  font-size: 1.2em;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.icon-btn.text-danger {
+  color: #dc3545;
+}
+
+.icon-btn:disabled {
+  color: #6c757d;
+}
+
+/* Ensure last icon doesn't have right margin */
+.icon-btn:last-child {
+  margin-right: 0;
+}
+
+/* Media query to stack icons vertically on smaller screens */
+@media (max-width: 768px) {
+  .align-self-center.d-flex {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .icon-btn {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .icon-btn:last-child {
+    margin-bottom: 0;
+  }
+}
+
+/* Container for icon and hover info */
+.icon-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* Hover info style */
+.hover-info {
+  visibility: hidden;
+  background-color: #343a40; /* Darker background for contrast */
+  color: #ffffff; /* White text for readability */
+  text-align: center;
+  padding: 8px 12px; /* Increased padding for better readability */
+  border-radius: 8px; /* Slightly more rounded corners */
+  position: absolute;
+  z-index: 1;
+  bottom: 150%; /* Position above the icon */
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s, transform 0.3s; /* Smooth transition */
+  white-space: nowrap;
+  font-size: 1.2em; /* Larger font size */
+  font-weight: bold; /* Bold text for emphasis */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle drop shadow */
+}
+
+/* Show hover info when hovering over the icon container */
+.icon-container:hover .hover-info {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(-50%) translateY(-10px); /* Adds a small upward movement */
+}

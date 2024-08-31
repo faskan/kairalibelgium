@@ -12,12 +12,14 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MatNativeDateModule } from '@angular/material/core';
+import { ProgramScheduleViewOnlyComponent } from './program-schedule-view-only/program-schedule-view-only.component';
 
 
 @NgModule({
   declarations: [
     ProgramScheduleComponent,
-    EditScheduleDialogComponent
+    EditScheduleDialogComponent,
+    ProgramScheduleViewOnlyComponent
   ],
   imports: [
     CommonModule,

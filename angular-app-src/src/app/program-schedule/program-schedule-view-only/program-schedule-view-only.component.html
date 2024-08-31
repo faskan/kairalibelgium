@@ -1,0 +1,41 @@
+<div class="container mt-4">
+  <div class="row mt-4" *ngIf="selectedEventId">
+    <div class="col-md-12">
+      <div class="d-flex justify-content-between align-items-center">
+        <h3>Program Schedules</h3>
+      </div>
+
+      <div class="list-group mt-3">
+        <div class="list-group-item d-flex" *ngFor="let schedule of activeSchedules; let i = index">
+          <div class="time-info text-center">
+            <span class="time-index">{{ schedule.scheduledTime | date:'HH:mm' }}</span><br>
+            <span class="duration">{{ schedule.durationInMinutes }} mins</span>
+          </div>
+          <div class="schedule-info flex-grow-1">
+            <h5>{{ schedule.title }}</h5>
+            <p class="mb-1">Contact: {{ schedule.contactPerson }}</p>
+            <span class="badge" [ngClass]="getStatusClass(schedule.status)">{{ schedule.status }}</span>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="mt-5">Cancelled Schedules</h3>
+      <div *ngIf="cancelledSchedules.length > 0" class="list-group">
+        <div class="list-group-item d-flex" *ngFor="let schedule of cancelledSchedules">
+          <div class="time-info text-center">
+            <span class="time-index">{{ schedule.scheduledTime | date:'HH:mm' }}</span><br>
+            <span class="duration">{{ schedule.durationInMinutes }} mins</span>
+          </div>
+          <div class="schedule-info flex-grow-1">
+            <h5>{{ schedule.title }}</h5>
+            <p class="mb-1">Contact: {{ schedule.contactPerson }}</p>
+            <span class="badge badge-danger">{{ schedule.status }}</span>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="cancelledSchedules.length === 0" class="text-muted">
+        No cancelled schedules.
+      </div>
+    </div>
+  </div>
+</div>
