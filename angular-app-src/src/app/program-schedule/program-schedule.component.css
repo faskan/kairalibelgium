@@ -53,3 +53,51 @@
 .icon-btn:last-child {
   margin-right: 0; /* Remove right margin from the last icon */
 }
+
+/* Ensure icons are aligned horizontally on medium and larger screens */
+.align-self-center.d-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.align-self-center.d-flex.flex-column {
+  flex-direction: column;
+}
+
+.icon-btn {
+  padding: 0;
+  margin-right: 20px;
+  font-size: 1.2em;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.icon-btn.text-danger {
+  color: #dc3545;
+}
+
+.icon-btn:disabled {
+  color: #6c757d;
+}
+
+/* Ensure last icon doesn't have right margin */
+.icon-btn:last-child {
+  margin-right: 0;
+}
+
+/* Media query to stack icons vertically on smaller screens */
+@media (max-width: 768px) {
+  .align-self-center.d-flex {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .icon-btn {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .icon-btn:last-child {
+    margin-bottom: 0;
+  }
+}

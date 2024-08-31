@@ -3,11 +3,19 @@
   <form>
     <mat-form-field class="full-width">
       <mat-label>Title</mat-label>
-      <input matInput [(ngModel)]="data.title" name="title" required>
+      <textarea matInput [(ngModel)]="data.title" name="title" required></textarea>
     </mat-form-field>
     <mat-form-field class="full-width">
       <mat-label>Contact Person</mat-label>
       <input matInput [(ngModel)]="data.contactPerson" name="contactPerson" required>
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <mat-label>Phone Number</mat-label>
+      <input matInput [(ngModel)]="data.phoneNumber" name="phoneNumber" type="tel">
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <mat-label>WhatsApp Number</mat-label>
+      <input matInput [(ngModel)]="data.whatsappNumber" name="whatsappNumber" type="tel">
     </mat-form-field>
     <mat-form-field class="full-width">
       <mat-label>Scheduled Date and Time</mat-label>

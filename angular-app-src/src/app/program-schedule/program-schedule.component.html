@@ -17,17 +17,18 @@
             <p class="mb-1">Contact: {{ schedule.contactPerson }}</p>
             <span class="badge" [ngClass]="getStatusClass(schedule.status)">{{ schedule.status }}</span>
           </div>
-          <div class="align-self-center d-flex">
-<!--            <button class="btn btn-link icon-btn" (click)="moveScheduleUp(i)" [disabled]="i === 0">-->
-<!--              <i class="fas fa-arrow-up"></i>-->
-<!--            </button>-->
-<!--            <button class="btn btn-link icon-btn" (click)="moveScheduleDown(i)" [disabled]="i === activeSchedules.length - 1">-->
-<!--              <i class="fas fa-arrow-down"></i>-->
-<!--            </button>-->
+          <div class="align-self-center d-flex flex-column flex-md-row">
+            <!-- Phone Icon -->
+            <button class="btn btn-link icon-btn" *ngIf="schedule.phoneNumber" (click)="onCallPhone(schedule.phoneNumber)">
+              <i class="fas fa-phone"></i>
+            </button>
+            <!-- WhatsApp Icon -->
+            <button class="btn btn-link icon-btn" *ngIf="schedule.whatsappNumber" (click)="onWhatsApp(schedule.whatsappNumber)">
+              <i class="fab fa-whatsapp"></i>
+            </button>
             <button class="btn btn-link icon-btn" (click)="onEditSchedule(schedule)">
               <i class="fas fa-edit"></i>
             </button>
-
           </div>
         </div>
       </div>

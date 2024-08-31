@@ -6,4 +6,6 @@ export interface Schedule {
   scheduledTime: string;
   status: string;
   durationInMinutes: number;
+  phoneNumber?: string;
+  whatsappNumber?: string;
 }
