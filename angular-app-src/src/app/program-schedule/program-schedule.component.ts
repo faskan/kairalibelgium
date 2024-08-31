@@ -20,7 +20,7 @@ export class ProgramScheduleComponent implements OnInit {
   editing = false;
   readonly remoteHost = 'https://ezytix.techroots.be/apis';
   readonly localHost = 'http://localhost:8080/apis';
-  readonly host = this.localHost;
+  readonly host = this.remoteHost;
   constructor(private http: HttpClient,
               public dialog: MatDialog,
               private route: ActivatedRoute) {}
