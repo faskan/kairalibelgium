@@ -18,14 +18,21 @@
             <span class="badge" [ngClass]="getStatusClass(schedule.status)">{{ schedule.status }}</span>
           </div>
           <div class="align-self-center d-flex flex-column flex-md-row">
-            <!-- Phone Icon -->
-            <button class="btn btn-link icon-btn" *ngIf="schedule.phoneNumber" (click)="onCallPhone(schedule.phoneNumber)">
-              <i class="fas fa-phone"></i>
-            </button>
-            <!-- WhatsApp Icon -->
-            <button class="btn btn-link icon-btn" *ngIf="schedule.whatsappNumber" (click)="onWhatsApp(schedule.whatsappNumber)">
-              <i class="fab fa-whatsapp"></i>
-            </button>
+            <!-- Phone Icon with Hover Effect -->
+            <div class="icon-container">
+              <button class="btn btn-link icon-btn" *ngIf="schedule.phoneNumber">
+                <i class="fas fa-phone"></i>
+              </button>
+              <span class="hover-info">{{ schedule.phoneNumber }}</span>
+            </div>
+            <!-- WhatsApp Icon with Hover Effect -->
+            <div class="icon-container">
+              <button class="btn btn-link icon-btn" *ngIf="schedule.whatsappNumber">
+                <i class="fab fa-whatsapp"></i>
+              </button>
+              <span class="hover-info">{{ schedule.whatsappNumber }}</span>
+            </div>
+            <!-- Edit Icon -->
             <button class="btn btn-link icon-btn" (click)="onEditSchedule(schedule)">
               <i class="fas fa-edit"></i>
             </button>
