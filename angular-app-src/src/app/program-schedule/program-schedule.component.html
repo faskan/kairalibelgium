@@ -20,14 +20,14 @@
           <div class="align-self-center d-flex flex-column flex-md-row">
             <!-- Phone Icon with Hover Effect -->
             <div class="icon-container">
-              <button class="btn btn-link icon-btn" *ngIf="schedule.phoneNumber">
+              <button class="btn btn-link icon-btn" *ngIf="schedule.phoneNumber" (click)="onCallPhone(schedule.phoneNumber)">
                 <i class="fas fa-phone"></i>
               </button>
               <span class="hover-info">{{ schedule.phoneNumber }}</span>
             </div>
             <!-- WhatsApp Icon with Hover Effect -->
             <div class="icon-container">
-              <button class="btn btn-link icon-btn" *ngIf="schedule.whatsappNumber">
+              <button class="btn btn-link icon-btn" *ngIf="schedule.whatsappNumber" (click)="onWhatsApp(schedule.whatsappNumber)">
                 <i class="fab fa-whatsapp"></i>
               </button>
               <span class="hover-info">{{ schedule.whatsappNumber }}</span>

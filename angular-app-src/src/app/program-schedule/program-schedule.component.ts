@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { ActivatedRoute } from '@angular/router';
 import { Schedule } from './schedule.interface';
 import { EditScheduleDialogComponent } from './edit-schedule-dialog/edit-schedule-dialog.component';
@@ -19,7 +18,7 @@ export class ProgramScheduleComponent implements OnInit {
   scheduleModel: Schedule = {} as Schedule;
   readonly remoteHost = 'https://ezytix.techroots.be/apis';
   readonly localHost = 'http://localhost:8080/apis';
-  readonly host = this.localHost;
+  readonly host = this.remoteHost;
   constructor(private http: HttpClient,
               public dialog: MatDialog,
               private route: ActivatedRoute) {}
@@ -50,7 +49,7 @@ export class ProgramScheduleComponent implements OnInit {
 
   onAddProgram() {
     const dialogRef = this.dialog.open(EditScheduleDialogComponent, {
-      width: '400px',
+      width: '500px',
       data: {
         title: '',
         contactPerson: '',
@@ -98,7 +97,7 @@ export class ProgramScheduleComponent implements OnInit {
 
   onEditSchedule(schedule: any) {
     const dialogRef = this.dialog.open(EditScheduleDialogComponent, {
-      width: '400px',
+      width: '500px',
       data: { ...schedule }
     });
 
