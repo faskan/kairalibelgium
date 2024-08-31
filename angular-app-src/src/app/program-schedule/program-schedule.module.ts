@@ -5,18 +5,32 @@ import { ProgramScheduleRoutingModule } from './program-schedule-routing.module'
 import { ProgramScheduleComponent } from './program-schedule.component';
 import { FormsModule } from '@angular/forms';
 import { CdkDrag, CdkDropList } from '@angular/cdk/drag-drop';
+import { EditScheduleDialogComponent } from './edit-schedule-dialog/edit-schedule-dialog.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { MatNativeDateModule } from '@angular/material/core';
 
 
 @NgModule({
   declarations: [
-    ProgramScheduleComponent
+    ProgramScheduleComponent,
+    EditScheduleDialogComponent
   ],
   imports: [
     CommonModule,
     ProgramScheduleRoutingModule,
     FormsModule,
     CdkDropList,
-    CdkDrag
+    CdkDrag,
+    MatInputModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatDialogModule,
+    MatButtonModule
   ]
 })
 export class ProgramScheduleModule { }

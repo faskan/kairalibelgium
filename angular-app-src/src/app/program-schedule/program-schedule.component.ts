@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { ActivatedRoute } from '@angular/router';
 import { Schedule } from './schedule.interface';
+import { EditScheduleDialogComponent } from './edit-schedule-dialog/edit-schedule-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-program-schedule',
@@ -12,12 +14,15 @@ import { Schedule } from './schedule.interface';
 export class ProgramScheduleComponent implements OnInit {
   selectedEventId: string | null = null;
   schedules: Schedule[] = [];
+  activeSchedules: Schedule[] = [];
+  cancelledSchedules: Schedule[] = [];
   scheduleModel: Schedule = {} as Schedule;
   editing = false;
   readonly remoteHost = 'https://ezytix.techroots.be/apis';
   readonly localHost = 'http://localhost:8080/apis';
-  readonly host = this.remoteHost;
+  readonly host = this.localHost;
   constructor(private http: HttpClient,
+              public dialog: MatDialog,
               private route: ActivatedRoute) {}
 
   ngOnInit(): void {
@@ -29,36 +34,55 @@ export class ProgramScheduleComponent implements OnInit {
     if (this.selectedEventId) {
       this.http.get<Schedule[]>(`${this.host}/schedules/event/${this.selectedEventId}`).subscribe((data) => {
         this.schedules = data;
+        this.activeSchedules = data.filter(schedule => schedule.status.toLowerCase() !== 'cancelled');
+        this.cancelledSchedules = data.filter(schedule => schedule.status.toLowerCase() === 'cancelled');
       });
     }
   }
 
   onSubmit() {
     if (this.editing) {
-      this.http.put(`/apis/schedules/${this.scheduleModel.id}`, this.scheduleModel).subscribe(() => {
+      this.http.put(`${this.host}/schedules/${this.scheduleModel.id}`, this.scheduleModel).subscribe(() => {
         this.loadSchedules();
         this.resetForm();
       });
     } else {
       this.scheduleModel.eventId = this.selectedEventId!;
-      this.http.post('/apis/schedules', this.scheduleModel).subscribe(() => {
+      this.http.post(`${this.host}/schedules`, this.scheduleModel).subscribe(() => {
         this.loadSchedules();
         this.resetForm();
       });
     }
   }
 
-  onEditSchedule(schedule: any) {
-    this.scheduleModel = { ...schedule };
-    this.editing = true;
-  }
-
   onDeleteSchedule(id: string) {
     if (confirm('Are you sure you want to delete this schedule?')) {
-      this.http.delete(`/apis/schedules/${id}`).subscribe(() => {
+      this.http.delete(`${this.host}/apis/schedules/${id}`).subscribe(() => {
         this.loadSchedules();
       });
     }
+  }
+
+  onAddProgram() {
+    const dialogRef = this.dialog.open(EditScheduleDialogComponent, {
+      width: '400px',
+      data: {
+        title: '',
+        contactPerson: '',
+        scheduledTime: '',
+        status: 'Scheduled',
+        durationInMinutes: 60,
+        eventId: this.selectedEventId
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.http.post(`${this.host}/schedules`, result).subscribe(() => {
+          this.loadSchedules();
+        });
+      }
+    });
   }
 
   moveScheduleUp(index: number) {
@@ -88,7 +112,7 @@ export class ProgramScheduleComponent implements OnInit {
   }
 
   updateScheduleOrder() {
-    this.http.post(`/api/schedules/reschedule`, this.schedules).subscribe(() => {
+    this.http.post(`${this.host}/schedules/reschedule`, this.schedules).subscribe(() => {
       this.loadSchedules();
       alert('Programs rescheduled successfully!');
     });
@@ -107,6 +131,21 @@ export class ProgramScheduleComponent implements OnInit {
       default:
         return 'badge-secondary';
     }
+  }
+
+  onEditSchedule(schedule: any) {
+    const dialogRef = this.dialog.open(EditScheduleDialogComponent, {
+      width: '400px',
+      data: { ...schedule }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.http.put(`${this.host}/schedules/${schedule.id}`, result).subscribe(() => {
+          this.loadSchedules();
+        });
+      }
+    });
   }
 
   calculateNewTime(index: number): string {

@@ -1,0 +1,34 @@
+<h2 mat-dialog-title>Edit Schedule</h2>
+<div mat-dialog-content>
+  <form>
+    <mat-form-field class="full-width">
+      <mat-label>Title</mat-label>
+      <input matInput [(ngModel)]="data.title" name="title" required>
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <mat-label>Contact Person</mat-label>
+      <input matInput [(ngModel)]="data.contactPerson" name="contactPerson" required>
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <mat-label>Scheduled Date and Time</mat-label>
+      <input matInput [(ngModel)]="data.scheduledTime" name="scheduledDateTime" type="datetime-local" required>
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <mat-label>Status</mat-label>
+      <mat-select [(ngModel)]="data.status" name="status" required>
+        <mat-option value="Scheduled">Scheduled</mat-option>
+        <mat-option value="Ongoing">Ongoing</mat-option>
+        <mat-option value="Completed">Completed</mat-option>
+        <mat-option value="Cancelled">Cancelled</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <mat-label>Duration (minutes)</mat-label>
+      <input matInput type="number" [(ngModel)]="data.durationInMinutes" name="durationInMinutes" required>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-button color="primary" (click)="onSave()">Save</button>
+</div>
