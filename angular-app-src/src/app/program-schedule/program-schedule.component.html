@@ -11,11 +11,13 @@
           <div class="time-info text-center">
             <span class="time-index">{{ schedule.scheduledTime | date:'HH:mm' }}</span><br>
             <span class="duration">{{ schedule.durationInMinutes }} mins</span>
+            <span class="badge" [ngClass]="getStatusClass(schedule.status)">{{ schedule.status }}</span>
           </div>
           <div class="schedule-info flex-grow-1">
             <h5>{{ schedule.title }}</h5>
-            <p class="mb-1">Contact: {{ schedule.contactPerson }}</p>
-            <span class="badge" [ngClass]="getStatusClass(schedule.status)">{{ schedule.status }}</span>
+            <p class="mb-1"><i class="fas fa-theater-masks"></i> {{ schedule.performanceType }}</p> <!-- Display performanceType -->
+            <p class="mb-1"><i class="fas fa-users"></i> {{ schedule.teamName }}</p> <!-- Display teamName -->
+            <p class="mb-1"><i class="fas fa-user"></i> {{ schedule.contactPerson }}</p>
           </div>
           <div class="align-self-center d-flex flex-column flex-md-row">
             <!-- Phone Icon with Hover Effect -->

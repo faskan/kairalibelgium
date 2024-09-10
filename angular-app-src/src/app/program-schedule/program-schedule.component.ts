@@ -52,6 +52,8 @@ export class ProgramScheduleComponent implements OnInit {
       width: '500px',
       data: {
         title: '',
+        teamName: '',
+        performanceType: '',
         contactPerson: '',
         phoneNumber: '',
         whatsappNumber: '',
