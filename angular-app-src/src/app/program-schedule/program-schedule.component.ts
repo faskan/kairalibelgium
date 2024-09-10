@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Schedule } from './schedule.interface';
 import { EditScheduleDialogComponent } from './edit-schedule-dialog/edit-schedule-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
+import { ScheduleManagementService } from './schedule-management.service';
 
 @Component({
   selector: 'app-program-schedule',
@@ -12,16 +13,15 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class ProgramScheduleComponent implements OnInit {
   selectedEventId: string | null = null;
-  schedules: Schedule[] = [];
   activeSchedules: Schedule[] = [];
   cancelledSchedules: Schedule[] = [];
   scheduleModel: Schedule = {} as Schedule;
-  readonly remoteHost = 'https://ezytix.techroots.be/apis';
-  readonly localHost = 'http://localhost:8080/apis';
-  readonly host = this.remoteHost;
-  constructor(private http: HttpClient,
+  isLoading = false;
+
+  constructor(private scheduleManagementService: ScheduleManagementService,
               public dialog: MatDialog,
-              private route: ActivatedRoute) {}
+              private route: ActivatedRoute) {
+  }
 
   ngOnInit(): void {
     this.selectedEventId = this.route.snapshot.paramMap.get('eventId');
@@ -30,20 +30,28 @@ export class ProgramScheduleComponent implements OnInit {
 
   loadSchedules() {
     if (this.selectedEventId) {
-      this.http.get<Schedule[]>(`${this.host}/schedules/event/${this.selectedEventId}`).subscribe((data) => {
-        const sortedSchedules = [...data].sort((a, b) => new Date(a.scheduledTime).getTime() - new Date(b.scheduledTime).getTime());
-        this.schedules = sortedSchedules;
-        this.activeSchedules = sortedSchedules.filter(schedule => schedule.status.toLowerCase() !== 'cancelled');
-        this.cancelledSchedules = sortedSchedules.filter(schedule => schedule.status.toLowerCase() === 'cancelled');
-      });
+      this.isLoading = true;
+      this.scheduleManagementService.loadSchedules(this.selectedEventId)
+        .subscribe({
+          next: (data: { activeSchedules: Schedule[], cancelledSchedules: Schedule[] }) => {
+            this.activeSchedules = data.activeSchedules;
+            this.cancelledSchedules = data.cancelledSchedules;
+            this.isLoading = false;
+          },
+          error: (error) => {
+            console.error('Error loading schedules:', error);
+            this.isLoading = false;
+          }
+        });
     }
   }
 
   onDeleteSchedule(id: string) {
     if (confirm('Are you sure you want to delete this schedule?')) {
-      this.http.delete(`${this.host}/apis/schedules/${id}`).subscribe(() => {
-        this.loadSchedules();
-      });
+      this.scheduleManagementService.deleteSchedule(id)
+        .subscribe(() => {
+          this.loadSchedules();
+        });
     }
   }
 
@@ -66,9 +74,10 @@ export class ProgramScheduleComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.http.post(`${this.host}/schedules`, result).subscribe(() => {
-          this.loadSchedules();
-        });
+        this.scheduleManagementService.addSchedule(result)
+          .subscribe(() => {
+            this.loadSchedules();
+          });
       }
     });
   }
@@ -100,14 +109,15 @@ export class ProgramScheduleComponent implements OnInit {
   onEditSchedule(schedule: any) {
     const dialogRef = this.dialog.open(EditScheduleDialogComponent, {
       width: '500px',
-      data: { ...schedule }
+      data: {...schedule}
     });
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.http.put(`${this.host}/schedules/${schedule.id}`, result).subscribe(() => {
-          this.loadSchedules();
-        });
+        this.scheduleManagementService.updateSchedule(schedule.id, result)
+          .subscribe(() => {
+            this.loadSchedules();
+          });
       }
     });
   }

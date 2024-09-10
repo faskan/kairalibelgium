@@ -1,5 +1,8 @@
 <div class="container mt-4">
-  <div class="row mt-4" *ngIf="selectedEventId">
+  <div class="d-flex justify-content-center align-items-center" style="height: 100vh;" *ngIf="isLoading">
+    <i class="fas fa-spinner fa-spin fa-3x"></i>
+  </div>
+  <div class="row mt-4" *ngIf="!isLoading && selectedEventId">
     <div class="col-md-12">
       <div class="d-flex justify-content-between align-items-center">
         <h3>Program Schedules</h3>
