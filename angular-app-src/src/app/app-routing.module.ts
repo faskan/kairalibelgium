@@ -14,6 +14,10 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
+    path: 'forum',
+    loadChildren: () => import('./forum/forum.module').then(m => m.ForumModule),
+  },
+  {
     path: 'admin',
     loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
     canActivate: [AuthGuardService]
