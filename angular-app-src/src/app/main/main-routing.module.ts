@@ -20,10 +20,6 @@ const routes: Routes = [
         path: 'events',
         component: EventsComponent
       },
-      // {
-      //   path: 'gallery',
-      //   loadChildren: () => import('photogallery/Module').then((m) => m.RemoteEntryModule),
-      // },
       {
         path: 'about-us',
         component: AboutUsComponent
