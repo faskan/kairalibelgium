@@ -1,0 +1,15 @@
+.forum {
+  border: 0;
+  box-shadow: 0px 0px;
+}
+
+.mat-card-title {
+  font-size: 16px;
+  font-weight: 500;
+}
+.btn-primary {
+  color: #fff;
+}
+a {
+  color: #e22cb1;
+}

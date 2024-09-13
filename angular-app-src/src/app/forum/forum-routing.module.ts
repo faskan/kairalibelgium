@@ -1,23 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ForumHomeComponent } from './forum-home/forum-home.component';
+import { ThreadDetailComponent } from './thread-detail/thread-detail.component';
+import { ForumComponent } from './forum.component';
 
 const routes: Routes = [
   {
     path: '',
     component: ForumHomeComponent,
     children: [
-      {
-        path: 'home',
-        loadChildren: () => import('forum/Module').then((m) => m.RemoteEntryModule),
-      },
-      {
-        path: '',
-        redirectTo: 'home',
-        pathMatch: 'full'
-      }
+      { path: 'thread/:id', component: ThreadDetailComponent },
+      { path: '', component: ForumComponent },
     ]
-  }
+  },
 ];
 
 @NgModule({

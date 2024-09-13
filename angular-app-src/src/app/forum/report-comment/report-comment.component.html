@@ -1,0 +1,26 @@
+<div class="container pt-5">
+  <form id="newThreadForm" name="newThreadForm" [formGroup]="reportCommentForm" novalidate="novalidate">
+    <div class="row align-items-stretch mb-5">
+      <div class="col-md-12">
+        <div class="form-group form-group-textarea mb-md-0">
+                <textarea
+                  class="form-control"
+                  rows="10"
+                  id="reason"
+                  placeholder="Reason *"
+                  required="required"
+                  formControlName="reason"
+                  data-validation-required-message="Please state why you would like to report this comment."
+                ></textarea>
+          <p class="help-block text-danger"></p>
+        </div>
+      </div>
+    </div>
+    <div class="text-center">
+      <div id="success"></div>
+      <button
+        (click)="onSubmit()"
+        class="btn btn-primary btn-xl text-uppercase">Submit</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,19 @@
+<div class="container pt-5">
+  <div class="mt-5 pt-5">
+    <div *ngFor="let thread of threads" class="col-lg-12 forum pt-3">
+      <h4 (click)="showThreadDetails(thread.id)" class="cursor">{{thread.title}}</h4>
+      <p>{{thread.description}}</p>
+      <div>
+        <a *ngIf="loggedInUser" class="px-2" (click)="replyThread(thread.id)">Comment</a>
+        <sub class="float-right">{{thread.createdByEmail}} on {{thread.lastUpdatedAt}}</sub>
+      </div>
+      <hr/>
+    </div>
+  </div>
+  <div class="d-flex justify-content-center pt-5" *ngIf="loggedInUser">
+    <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger"
+       (click)="openNewThreadDialog()">New Topic</a></div>
+  <div class="d-flex justify-content-center" *ngIf="isLoading">
+    <i class="fas fa-circle-notch fa-spin fa-3x"></i>
+  </div>
+</div>
