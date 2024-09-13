@@ -17,3 +17,9 @@ a {
 .cursor {
   cursor: pointer;
 }
+
+.clickable-text {
+  color: #e22cb1;
+  cursor: pointer;
+  text-decoration: none;
+}

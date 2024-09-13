@@ -1,15 +1,39 @@
-.forum {
-  border: 0;
-  box-shadow: 0px 0px;
+/* Custom CSS for Branch-like Indentation */
+.post-branch {
+  position: relative;
 }
 
-.mat-card-title {
-  font-size: 16px;
-  font-weight: 500;
+.post-branch::before {
+  content: '';
+  position: absolute;
+  left: -20px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: #dee2e6;
 }
-.btn-primary {
-  color: #fff;
+
+.post-branch::after {
+  content: '';
+  position: absolute;
+  left: -20px;
+  top: 15px;
+  width: 15px;
+  height: 2px;
+  background-color: #dee2e6;
 }
-a {
-  color: #e22cb1;
+
+/* Reduce card height and padding */
+.card-body.p-2 {
+  padding: 0.5rem;
+}
+
+/* Spacing between buttons */
+.btn-link {
+  margin-right: 10px;
+}
+
+.awaiting-moderation {
+  background-color: #f8f9fa;
+  color: #6c757d;
 }

@@ -6,7 +6,7 @@ import { Thread } from '../model/thread';
 import { ReplyThreadComponent } from '../reply-thread/reply-thread.component';
 import { MatDialog } from '@angular/material/dialog';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
-import { NgFor, NgIf } from '@angular/common';
+import { NgClass, NgFor, NgIf } from '@angular/common';
 import { User } from '../model/user';
 import { LoggedInUserService } from '../service/logged-in-user.service';
 import { ReportCommentComponent } from '../report-comment/report-comment.component';
@@ -20,7 +20,7 @@ import { switchMap } from 'rxjs';
   templateUrl: './thread-detail.component.html',
   styleUrls: ['./thread-detail.component.css'],
   standalone: true,
-  imports: [NgFor, RouterLink, NgIf]
+  imports: [NgFor, RouterLink, NgIf, NgClass]
 })
 export class ThreadDetailComponent implements OnInit {
 

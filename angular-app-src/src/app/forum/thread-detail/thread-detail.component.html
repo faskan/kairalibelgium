@@ -1,21 +1,54 @@
 <div class="container pt-5">
   <div class="mt-5 pt-5">
-    <h4>{{thread?.title}}</h4>
-    <p>{{thread?.description}}</p>
-    <div *ngFor="let post of posts" class="col-lg-12 forum pt-3">
-      <div class="col-lg-12">
-        <h6>{{post.content}}</h6>
-        <a class="px-2" *ngIf="loggedInUser" (click)="reportComment(post.id)">Report</a>
-        <a class="px-2" *ngIf="loggedInUser && (loggedInUser.roles.includes('moderator') || loggedInUser.roles.includes('admin'))" (click)="deleteComment(post.id)">Delete</a>
-        <a class="px-2" *ngIf="loggedInUser && (loggedInUser.roles.includes('moderator') || loggedInUser.roles.includes('admin'))" (click)="editComment(post.id, thread?.id!, post.content)">Edit</a>
-        <!-- if status is AWAITING_MODERATION, show button to resolve moderation if user is a moderator -->
-        <a class="px-2" *ngIf="loggedInUser && loggedInUser.roles.includes('moderator') && post.status === 'AWAITING_MODERATION'" (click)="resolveModeration(post.id)">Resolve Moderation</a>
-        <sub class="float-right">{{post?.createdByEmail}} on {{post?.lastUpdatedAt}}</sub>
+    <!-- Thread Title and Description -->
+    <div class="card mb-4">
+      <div class="card-body">
+        <h3 class="card-title text-primary">{{thread?.title}}</h3>
+        <p class="card-text">{{thread?.description}}</p>
       </div>
     </div>
-    <div class="pt-3">
-      <a class="px-2" *ngIf="loggedInUser" (click)="replyThread(thread?.id)">Comment</a>
-      <a class="px-2 float-right" routerLink="../../">Back</a>
+
+    <!-- Posts as Thread-like Branches -->
+    <div *ngFor="let post of posts" class="post-branch ml-5">
+      <div class="card mb-2" [ngClass]="{'awaiting-moderation': post.status === 'AWAITING_MODERATION'}">
+        <div class="card-body p-2">
+          <!-- Post Content -->
+          <h6 class="mb-1">{{post.content}}</h6>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+              <!-- Report and Resolve Actions -->
+              <button class="btn btn-sm btn-link text-danger p-0 mr-3" *ngIf="loggedInUser" (click)="reportComment(post.id)">
+                Report Comment
+              </button>
+              <button class="btn btn-sm btn-link text-success p-0 mr-3" *ngIf="loggedInUser && loggedInUser.roles.includes('moderator') && post.status === 'AWAITING_MODERATION'" (click)="resolveModeration(post.id)">
+                Resolve Comment
+              </button>
+            </div>
+
+            <!-- Push Edit and Delete icons to the right -->
+            <div class="ml-auto d-flex align-items-center">
+              <!-- Edit Icon -->
+              <button class="btn btn-sm btn-link p-0 mr-2" *ngIf="loggedInUser && (loggedInUser.roles.includes('moderator') || loggedInUser.roles.includes('admin'))" (click)="editComment(post.id, thread?.id!, post.content)">
+                <i class="fas fa-edit text-primary"></i>
+              </button>
+
+              <!-- Delete Icon -->
+              <button class="btn btn-sm btn-link p-0" *ngIf="loggedInUser && (loggedInUser.roles.includes('moderator') || loggedInUser.roles.includes('admin'))" (click)="deleteComment(post.id)">
+                <i class="fas fa-trash-alt text-danger"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Post Meta Info -->
+          <sub class="text-muted">{{post?.createdByEmail}} on {{post?.lastUpdatedAt}}</sub>
+        </div>
+      </div>
+    </div>
+
+    <!-- Comment and Back Buttons -->
+    <div class="d-flex justify-content-between mt-4">
+      <button class="btn btn-sm btn-primary" *ngIf="loggedInUser" (click)="replyThread(thread?.id)">Comment</button>
+      <a class="btn btn-sm btn-outline-secondary" routerLink="../../">Back</a>
     </div>
   </div>
 </div>

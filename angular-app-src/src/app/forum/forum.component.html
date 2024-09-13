@@ -1,8 +1,8 @@
 <div class="container pt-5">
   <div class="mt-5 pt-5">
     <div *ngFor="let thread of threads" class="col-lg-12 forum pt-3">
-      <h4 (click)="showThreadDetails(thread.id)" class="cursor">{{thread.title}}</h4>
-      <p>{{thread.description}}</p>
+      <h4 (click)="showThreadDetails(thread.id)" class="cursor clickable-text">{{thread.title}}</h4>
+      <p (click)="showThreadDetails(thread.id)">{{thread.description}}</p>
       <div>
         <a *ngIf="loggedInUser" class="px-2" (click)="replyThread(thread.id)">Comment</a>
         <sub class="float-right">{{thread.createdByEmail}} on {{thread.lastUpdatedAt}}</sub>
