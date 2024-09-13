@@ -21,10 +21,19 @@
     <div class="collapse navbar-collapse" id="navbarResponsive" [ngbCollapse]="isCollapsed">
       <ul class="navbar-nav text-uppercase ml-auto">
         <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" [routerLink]="['/home']" routerLinkActive="active" ariaCurrentWhenActive="page"
+          ><b>Home</b></a
+          >
+        </li>
+        <li *ngIf="loggedInUser" class="nav-item">
           <a class="nav-link js-scroll-trigger" (click)="logout()"
           ><b>Log out</b></a
           >
         </li>
+        <li *ngIf="!loggedInUser" class="nav-item">
+          <a class="nav-link js-scroll-trigger" [routerLink]="['/login']" routerLinkActive="active" ariaCurrentWhenActive="page"
+          ><b>Login</b></a
+          >
       </ul>
     </div>
   </div>
