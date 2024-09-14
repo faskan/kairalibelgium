@@ -13,6 +13,7 @@ export class AuthGuardService {
   }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
+    localStorage.setItem('redirectUrl', state.url);
     return this.socialAuthService.authState.pipe(
       map((socialUser: SocialUser) => !!socialUser),
       tap((isLoggedIn: boolean) => {

@@ -6,7 +6,10 @@
     <div class="col-md-12">
       <div class="d-flex justify-content-between align-items-center">
         <h3>Program Schedules</h3>
-        <button class="btn btn-primary" (click)="onAddProgram()">Add Program</button>
+        <div class="ml-auto">
+          <button class="btn btn-primary mr-2" (click)="onAddProgram()">Add Program</button>
+          <button class="btn btn-secondary" (click)="onLogout()">Logout</button>
+        </div>
       </div>
 
       <div class="list-group mt-3">

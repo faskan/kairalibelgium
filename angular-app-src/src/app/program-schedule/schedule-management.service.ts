@@ -1,17 +1,18 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Schedule } from './schedule.interface';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs';
+import { LoggedInUserService } from '../forum/service/logged-in-user.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ScheduleManagementService {
-  readonly remoteHost = 'https://ezytix.techroots.be/apis';
-  readonly localHost = 'http://localhost:8080/apis';
+  readonly remoteHost = 'https://slforum-xiosrv3ggq-uc.a.run.app';
+  readonly localHost = 'http://localhost:8080';
   readonly host = this.remoteHost;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private loggedInUserService: LoggedInUserService) {}
 
   loadSchedules(selectedEventId: string) {
     return this.http.get<Schedule[]>(`${this.host}/schedules/event/${selectedEventId}`)
@@ -22,19 +23,36 @@ export class ScheduleManagementService {
           const cancelledSchedules = sortedSchedules.filter(schedule => schedule.status.toLowerCase() === 'cancelled');
           return { activeSchedules, cancelledSchedules };
         })
-
       );
   }
 
   deleteSchedule(id: string) {
-    return this.http.delete(`${this.host}/apis/schedules/${id}`);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + this.loggedInUserService.getIdToken()
+      })
+    };
+    return this.http.delete(`${this.host}/apis/schedules/${id}`, httpOptions);
   }
 
   addSchedule(schedule: Schedule) {
-    return this.http.post(`${this.host}/schedules`, schedule);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + this.loggedInUserService.getIdToken()
+      })
+    };
+    return this.http.post(`${this.host}/schedules`, schedule, httpOptions);
   }
 
   updateSchedule(id: string, schedule: Schedule) {
-    return this.http.put(`${this.host}/schedules/${id}`, schedule);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + this.loggedInUserService.getIdToken()
+      })
+    };
+    return this.http.put(`${this.host}/schedules/${id}`, schedule, httpOptions);
   }
 }

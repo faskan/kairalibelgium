@@ -20,12 +20,13 @@ export class ForumNavbarComponent {
         this.isCollapsed = true;
       }
     });
-    this.loggedInUserService.getLoggedInUserSubject().subscribe((user: User) => {
+    this.loggedInUserService.getLoggedInUserSubject().subscribe((user: User | undefined) => {
       this.loggedInUser = user;
     });
   }
   logout() {
     this.socialAuthService.signOut(true);
+    localStorage.setItem('redirectUrl', this.router.url);
     this.router.navigate(['login']);
   }
 }

@@ -3,14 +3,16 @@ import { Injectable } from '@angular/core';
 import { User } from '../model/user';
 import { CookieService } from 'ngx-cookie-service';
 import { Subject } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoggedInUserService {
   private loggedInUser?: User;
-  private loggedInUserSubjectS: Subject<User> = new Subject<User>();
-  constructor(private cookieService: CookieService) {
+  private loggedInUserSubjectS: Subject<User | undefined> = new Subject<User | undefined>();
+  constructor(private cookieService: CookieService,
+              private router: Router) {
   }
   setIdToken(idToken: string) {
     this.cookieService.set('idToken', idToken);
@@ -24,11 +26,18 @@ export class LoggedInUserService {
     return this.loggedInUser;
   }
 
-  getLoggedInUserSubject(): Subject<User> {
+  getLoggedInUserSubject(): Subject<User | undefined> {
     return this.loggedInUserSubjectS;
   }
 
   getIdToken(): string {
     return this.cookieService.get('idToken');
+  }
+
+  logout(): void {
+    this.cookieService.delete('idToken');
+    this.loggedInUser = undefined;
+    this.loggedInUserSubjectS.next(undefined);
+    this.router.navigate(['login']);
   }
 }

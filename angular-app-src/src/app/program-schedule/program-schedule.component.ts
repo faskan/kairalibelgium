@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Schedule } from './schedule.interface';
 import { EditScheduleDialogComponent } from './edit-schedule-dialog/edit-schedule-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { ScheduleManagementService } from './schedule-management.service';
+import { LoggedInUserService } from '../forum/service/logged-in-user.service';
+import { SocialAuthService } from '@abacritt/angularx-social-login';
+import { User } from '../forum/model/user';
 
 @Component({
   selector: 'app-program-schedule',
@@ -20,12 +22,26 @@ export class ProgramScheduleComponent implements OnInit {
 
   constructor(private scheduleManagementService: ScheduleManagementService,
               public dialog: MatDialog,
+              private socialAuthService: SocialAuthService,
+              private router: Router,
+              private loggedInUserService: LoggedInUserService,
               private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
     this.selectedEventId = this.route.snapshot.paramMap.get('eventId');
+    const loggedInUser = this.loggedInUserService.getLoggedInUser();
+    if (!loggedInUser) {
+      this.router.navigate(['login']);
+    }
+    if (!this.isProgramManager(loggedInUser!)) {
+      this.router.navigate(['home']);
+    }
     this.loadSchedules();
+  }
+
+  private isProgramManager(user: User) {
+    return user.roles && user.roles.includes('onam-2024-organizer');
   }
 
   loadSchedules() {
@@ -120,5 +136,10 @@ export class ProgramScheduleComponent implements OnInit {
           });
       }
     });
+  }
+
+  onLogout() {
+    this.socialAuthService.signOut(true);
+    this.router.navigate(['login']);
   }
 }
