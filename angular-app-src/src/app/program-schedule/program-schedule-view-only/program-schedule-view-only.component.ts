@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Schedule } from '../schedule.interface';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
@@ -9,7 +9,7 @@ import { ScheduleManagementService } from '../schedule-management.service';
   templateUrl: './program-schedule-view-only.component.html',
   styleUrls: ['./program-schedule-view-only.component.css']
 })
-export class ProgramScheduleViewOnlyComponent {
+export class ProgramScheduleViewOnlyComponent implements AfterViewInit, OnInit {
   selectedEventId: string | null = null;
   schedules: Schedule[] = [];
   activeSchedules: Schedule[] = [];
@@ -19,6 +19,7 @@ export class ProgramScheduleViewOnlyComponent {
   autoRefresh = false;
   refreshInterval = 5;
   autoRefreshIntervalId: any;
+
   constructor(private scheduleManagementService: ScheduleManagementService,
               public dialog: MatDialog,
               private route: ActivatedRoute) {
@@ -29,7 +30,6 @@ export class ProgramScheduleViewOnlyComponent {
     this.loadSchedules();
     const refreshParam = this.route.snapshot.queryParamMap.get('refreshInterval');
     this.refreshInterval = refreshParam ? Number(refreshParam) : 5;
-    console.log('Refresh interval:', this.refreshInterval);
     // Set up auto-refresh
     this.autoRefreshIntervalId = setInterval(() => {
       if (this.autoRefresh) {
@@ -44,6 +44,7 @@ export class ProgramScheduleViewOnlyComponent {
       clearInterval(this.autoRefreshIntervalId);
     }
   }
+
   loadSchedules() {
     if (this.selectedEventId) {
       this.isLoading = true;
@@ -54,19 +55,32 @@ export class ProgramScheduleViewOnlyComponent {
             this.cancelledSchedules = data.cancelledSchedules;
             this.isLoading = false;
 
-            const ongoingScheduleIndex = this.activeSchedules.findIndex(schedule => schedule.status.toLowerCase() === 'ongoing');
-
-            // If an ongoing schedule is found, scroll to it
-            if (ongoingScheduleIndex !== -1) {
-              const element = document.getElementById('schedule-' + ongoingScheduleIndex);
-              if (element) element.scrollIntoView();
-            }
+            this.scrollIntoUpcomingSchedule();
           },
           error: (error) => {
             console.error('Error loading schedules:', error);
             this.isLoading = false;
           }
         });
+    }
+  }
+
+  private scrollIntoUpcomingSchedule() {
+    const reversedSchedules = [...this.activeSchedules].reverse();
+    const lastCompletedScheduleIndexInReversed = reversedSchedules.findIndex(schedule => schedule.status.toLowerCase() === 'completed');
+
+    // If a completed schedule is found, calculate its index in the original array
+    if (lastCompletedScheduleIndexInReversed !== -1) {
+      const lastCompletedScheduleIndex = this.activeSchedules.length - 1 - lastCompletedScheduleIndexInReversed;
+      // Now you can use lastCompletedScheduleIndex with the original array
+      const element = document.getElementById('schedule-' + lastCompletedScheduleIndex);
+      if (element) element.scrollIntoView();
+    } else {
+      const ongoingScheduleIndex = this.activeSchedules.findIndex(schedule => schedule.status.toLowerCase() === 'ongoing');
+      if (ongoingScheduleIndex !== -1) {
+        const element = document.getElementById('schedule-' + ongoingScheduleIndex);
+        if (element) element.scrollIntoView();
+      }
     }
   }
 
@@ -83,5 +97,9 @@ export class ProgramScheduleViewOnlyComponent {
       default:
         return 'badge-secondary';
     }
+  }
+
+  ngAfterViewInit(): void {
+    this.loadSchedules();
   }
 }
