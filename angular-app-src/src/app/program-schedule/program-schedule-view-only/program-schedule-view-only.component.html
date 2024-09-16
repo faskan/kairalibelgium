@@ -1,15 +1,21 @@
 <div class="container mt-4">
-  <div class="d-flex justify-content-center align-items-center" style="height: 100vh;" *ngIf="isLoading">
+  <div class="loading-overlay" *ngIf="isLoading">
     <i class="fas fa-spinner fa-spin fa-3x"></i>
   </div>
-  <div class="row mt-4" *ngIf="!isLoading && selectedEventId">
+  <div class="row mt-4" *ngIf="selectedEventId">
     <div class="col-md-12">
       <div class="d-flex justify-content-between align-items-center">
-        <h3>Program Schedules</h3>
+        <h3>Onam-2024 Program Schedule</h3>
+        <div class="ml-auto">
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="autoRefreshSwitch" [(ngModel)]="autoRefresh">
+            <label class="custom-control-label" for="autoRefreshSwitch">Auto Refresh</label>
+          </div>
+        </div>
       </div>
 
       <div class="list-group mt-3">
-        <div class="list-group-item d-flex" *ngFor="let schedule of activeSchedules; let i = index">
+        <div class="list-group-item d-flex" *ngFor="let schedule of activeSchedules; let i = index" [id]="'schedule-' + i">
           <div class="time-info text-center">
             <span class="time-index">{{ schedule.scheduledTime | date:'HH:mm' }}</span><br>
             <span class="duration">{{ schedule.durationInMinutes }} mins</span>
